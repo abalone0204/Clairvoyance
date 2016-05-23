@@ -1,0 +1,49 @@
+{
+  "name": "clairvoyance",
+  "version": "1.0.0",
+  "description": "You know, for comment",
+  "main": "index.js",
+  "scripts": {
+    "precompile": "npm run clean && webpack --config webpack.config.prod.js -p",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "commit": "git-cz",
+    "clean": "rm dist/*"
+  },
+  "keywords": [
+    "job",
+    "react",
+    "chrome-extension"
+  ],
+  "author": "abalone0204",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-loader": "^6.2.4",
+    "babel-polyfill": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-register": "^6.9.0",
+    "css-loader": "^0.23.1",
+    "cz-conventional-changelog": "^1.1.6",
+    "file-loader": "^0.8.5",
+    "imports-loader": "^0.6.5",
+    "jsdom": "^9.1.0",
+    "postcss-cssnext": "^2.5.2",
+    "postcss-loader": "^0.9.1",
+    "postcss-nested": "^1.0.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "react": "^15.1.0",
+    "react-css-modules": "^3.7.6",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
+    "whatwg-fetch": "^1.0.0"
+  }
+}
