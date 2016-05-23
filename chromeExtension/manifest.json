@@ -1,6 +1,5 @@
 {
   "manifest_version": 2,
-
   "name": "Clairvoyance",
   "description": "This extension shows a Google Image search result for the current page",
   "version": "1.0",
@@ -12,6 +11,13 @@
   "permissions": [
     "activeTab",
     "contentSettings",
+    "webRequest",
     "https://ajax.googleapis.com/"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://www.104.com.tw/job/*"],
+      "js": ["./dist/content-bundle.js"]
+    }
   ]
 }
