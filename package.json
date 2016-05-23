@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "precompile": "npm run clean && webpack --config webpack.config.prod.js -p",
+    "precompile:chrome": "npm run precompile && cp dist/{chrome-bundle.js,popup-bundle.js,content-bundle.js} chromeExtension/dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "commit": "git-cz",
-    "clean": "rm dist/*"
+    "clean": "rm -f dist/* chromeExtension/dist/*"
   },
   "keywords": [
     "job",
@@ -42,6 +43,7 @@
   "dependencies": {
     "react": "^15.1.0",
     "react-css-modules": "^3.7.6",
+    "react-dom": "^15.1.0",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",
     "whatwg-fetch": "^1.0.0"
