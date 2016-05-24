@@ -16,7 +16,79 @@
 
 ## Front-ned
 
+- State tree
+
+```js
+{
+    actions: {
+        // Login
+        requestLogin,
+        failToLogin,
+        successLogin,
+        logout,
+        // Fetch Comment
+        requestComments,
+        failToGetComments,
+        receiveComments,
+        // Comment block
+        //  Leave comment
+        requestLeaveComment,
+        failToLeaveComment,
+        successLeaveComment,
+        //  Edit comment
+        requestEditComment,
+        failToEditComment,
+        successEditComment,
+        //  Report comment
+        requestReportComment,
+        failToReportComment,
+        successReportComment,
+        //  Delete comment,
+        requestDeleteComment,
+        failToDeleteComment,
+        successDeleteComment,
+        // Reply comment
+        requestReplyComment,
+        failToReplyComment,
+        successReplyComment,
+    },
+
+    comments: [
+        {
+            userId,
+            timestamp,
+            content,
+            replies: [
+                {
+                    userId,
+                    timeStamp
+                    content
+                    histories: [
+                        {
+                            content,
+                            timestamp
+                        }
+                    ]                                        
+                }
+            ]
+            histories: [
+                {
+                    content,
+                    timestamp
+                }
+            ]
+        }
+    ]
+}
+```
+
 ## Back-end
+
+- lambda
+
+- dynamodb
+
+- restore s3
 
 # Application
 
