@@ -5,7 +5,6 @@ const path = require('path')
 module.exports = {
     devtool: 'source-map',
     entry: {
-        chrome: './chromeExtension/index.js',
         popup: './front-end/popup.js',
         content: './front-end/content.js'
     },

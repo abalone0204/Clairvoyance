@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "precompile": "npm run clean && webpack --config webpack.config.prod.js -p",
-    "precompile:chrome": "npm run precompile && cp dist/{chrome-bundle.js,popup-bundle.js,content-bundle.js} chromeExtension/dist",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "precompile:chrome": "npm run precompile && cp dist/{popup-bundle.js,content-bundle.js} chromeExtension/dist",
     "commit": "git-cz",
-    "clean": "rm -f dist/* chromeExtension/dist/*"
+    "clean": "rm -f dist/* chromeExtension/dist/*",
+    "test": "cross-env NODE_ENV=test mocha ./front-end/app/tests --recursive --compilers js:babel-register",
+    "test:watch": "npm test -- --watch"
   },
   "keywords": [
     "job",
@@ -23,11 +24,15 @@
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.5.0",
     "babel-register": "^6.9.0",
+    "chai": "^3.5.0",
+    "cross-env": "^1.0.7",
     "css-loader": "^0.23.1",
     "cz-conventional-changelog": "^1.1.6",
+    "exports-loader": "^0.6.3",
     "file-loader": "^0.8.5",
     "imports-loader": "^0.6.5",
     "jsdom": "^9.1.0",
+    "mocha": "^2.5.1",
     "postcss-cssnext": "^2.5.2",
     "postcss-loader": "^0.9.1",
     "postcss-nested": "^1.0.0",
