@@ -52,7 +52,12 @@
         failToReplyComment,
         successReplyComment,
     },
-
+    user: {
+        uid,
+        name,
+        email,
+        comments
+    }
     comments: [
         {
             userId,
