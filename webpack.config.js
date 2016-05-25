@@ -6,12 +6,12 @@ module.exports = {
     devtool: 'source-map',
     entry: {
         popup: './front-end/popup.js',
-        content: './front-end/content.js'
+        content: './front-end/content.js',
+        app: './front-end/app/index.js'
     },
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: '[name]-bundle.js',
-        publicPath: '/static/'
+        filename: '[name]-bundle.js'
     },
     module: {
         loaders: [{

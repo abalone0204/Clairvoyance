@@ -4,6 +4,7 @@
   "description": "You know, for comment",
   "main": "index.js",
   "scripts": {
+    "start": "node devServer.js",
     "precompile": "npm run clean && webpack --config webpack.config.prod.js -p",
     "precompile:chrome": "npm run precompile && cp dist/{popup-bundle.js,content-bundle.js} chromeExtension/dist",
     "commit": "git-cz",
@@ -38,7 +39,8 @@
     "postcss-nested": "^1.0.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
   },
   "config": {
     "commitizen": {
