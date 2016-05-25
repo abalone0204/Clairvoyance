@@ -8,7 +8,7 @@
     "precompile:chrome": "npm run precompile && cp dist/{popup-bundle.js,content-bundle.js} chromeExtension/dist",
     "commit": "git-cz",
     "clean": "rm -f dist/* chromeExtension/dist/*",
-    "test": "cross-env NODE_ENV=test mocha ./front-end/app/tests --recursive --compilers js:babel-register",
+    "test": "cross-env NODE_ENV=test NODE_PATH=front-end/app mocha tests --recursive --compilers js:babel-register",
     "test:watch": "npm test -- --watch"
   },
   "keywords": [
