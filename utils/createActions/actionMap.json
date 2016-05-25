@@ -10,7 +10,7 @@
     }, {
         "name": "successLeaveComment",
         "args": [
-            "comments"
+            "notifications"
         ]
     }]
 }, {
@@ -25,10 +25,10 @@
     }, {
         "name": "successEditComment",
         "args": [
-            "comments"
+            "notifications"
         ]
     }]
-}, {
+},{
     "fileName": "reportComment",
     "actions": [{
         "name": "requestReportComment"
@@ -40,10 +40,11 @@
     }, {
         "name": "successReportComment",
         "args": [
-            "comments"
+            "notifications"
         ]
     }]
-}, {
+},
+{
     "fileName": "deleteComment",
     "actions": [{
         "name": "requestDeleteComment"
@@ -55,10 +56,11 @@
     }, {
         "name": "successDeleteComment",
         "args": [
-            "comments"
+            "notifications"
         ]
     }]
-}, {
+},
+{
     "fileName": "replyComment",
     "actions": [{
         "name": "requestReplyComment"
@@ -70,7 +72,8 @@
     }, {
         "name": "successReplyComment",
         "args": [
-            "comments"
+            "notifications"
         ]
     }]
-}]
+},
+]
