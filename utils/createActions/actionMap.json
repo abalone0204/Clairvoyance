@@ -1,0 +1,76 @@
+[{
+    "fileName": "leaveComment",
+    "actions": [{
+        "name": "requestLeaveComment"
+    }, {
+        "name": "failToLeaveComment",
+        "args": [
+            "errors"
+        ]
+    }, {
+        "name": "successLeaveComment",
+        "args": [
+            "comments"
+        ]
+    }]
+}, {
+    "fileName": "editComment",
+    "actions": [{
+        "name": "requestEditComment"
+    }, {
+        "name": "failToEditComment",
+        "args": [
+            "errors"
+        ]
+    }, {
+        "name": "successEditComment",
+        "args": [
+            "comments"
+        ]
+    }]
+}, {
+    "fileName": "reportComment",
+    "actions": [{
+        "name": "requestReportComment"
+    }, {
+        "name": "failToReportComment",
+        "args": [
+            "errors"
+        ]
+    }, {
+        "name": "successReportComment",
+        "args": [
+            "comments"
+        ]
+    }]
+}, {
+    "fileName": "deleteComment",
+    "actions": [{
+        "name": "requestDeleteComment"
+    }, {
+        "name": "failToDeleteComment",
+        "args": [
+            "errors"
+        ]
+    }, {
+        "name": "successDeleteComment",
+        "args": [
+            "comments"
+        ]
+    }]
+}, {
+    "fileName": "replyComment",
+    "actions": [{
+        "name": "requestReplyComment"
+    }, {
+        "name": "failToReplyComment",
+        "args": [
+            "errors"
+        ]
+    }, {
+        "name": "successReplyComment",
+        "args": [
+            "comments"
+        ]
+    }]
+}]
