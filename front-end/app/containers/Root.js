@@ -1,10 +1,13 @@
 import { Provider } from 'react-redux'
+import store from '../store.js'
+import App from './App'
 
 class Root extends React.Component {
     render() {
+        const {store} = this.props
         return (
               <Provider store={store}>
-                  <Router history={history} routes={routes} />
+                  <App/>
               </Provider>
             )
     }

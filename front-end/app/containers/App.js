@@ -4,6 +4,8 @@ import {
 
 class App extends React.Component {
     render() {
+        const {comments} = this.props
+        console.log(comments);
         return (
             <div>basic</div>
             )
