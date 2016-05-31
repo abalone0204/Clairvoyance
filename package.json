@@ -33,6 +33,7 @@
     "file-loader": "^0.8.5",
     "imports-loader": "^0.6.5",
     "jsdom": "^9.1.0",
+    "json-loader": "^0.5.4",
     "mocha": "^2.5.1",
     "postcss-cssnext": "^2.5.2",
     "postcss-loader": "^0.9.1",

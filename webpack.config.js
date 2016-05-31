@@ -29,6 +29,9 @@ module.exports = {
                 'postcss'
             ]
         }, {
+            test: /\.json$/,
+            loader: 'json-loader'
+        },{
             test: /\.(png|jpg|jpeg|gif|woff)$/,
             loader: 'url-loader?limit=8192?name=[name].[ext]'
         }],
