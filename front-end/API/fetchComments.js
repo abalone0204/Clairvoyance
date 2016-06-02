@@ -13,7 +13,6 @@ export default function fetchComments(params) {
             "X-Job-Id": params.jobId
         },
         mode: 'cors'
-
     }
     return fetch(`${backend}/comments`, options)
         .then(checkStatus)

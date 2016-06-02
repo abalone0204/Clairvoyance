@@ -8,7 +8,7 @@
     "precompile": "npm run clean && webpack --config webpack.config.prod.js -p",
     "precompile:chrome": "npm run precompile && cp dist/{popup-bundle.js,content-bundle.js} chromeExtension/dist",
     "commit": "git-cz",
-    "clean": "rm -f dist/* chromeExtension/dist/*",
+    "clean": "rm -f dist/*.js dist/*.js.map chromeExtension/dist/*",
     "test": "cross-env NODE_ENV=test NODE_PATH=front-end/app mocha tests --recursive --compilers js:babel-register",
     "test:watch": "npm test -- --watch"
   },

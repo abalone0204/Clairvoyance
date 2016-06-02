@@ -1,13 +1,13 @@
-const jobTitle = document.querySelector('#job h1')
-                         .firstChild
-                         .textContent.trim()
+import providers from './app/providers'
 
-const companyName = document.querySelector('#job .company a')
-                            .firstChild
-                            .textContent.trim()
+
+const jobTitle = providers['104'].getJobTitile()
+const companyName = providers['104'].getCompanyName()
 
 const node = document.createElement('div')
 const nodeId = `${jobTitle}Cla`
+
+console.log(jobTitle,companyName);
 node.id = nodeId
 document.body.appendChild(node)
 
