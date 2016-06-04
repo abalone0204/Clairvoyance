@@ -7,27 +7,28 @@ import createComment from '../../API/createComment.js'
 import fetchJob from '../../API/fetchJob.js'
 import createJob from '../../API/createJob.js'
 
+import oauthCallback from '../../chrome/oauthCallback.js'
+
+const clickHandler = (e) => {
+    e.preventDefault()
+    chrome.runtime.sendMessage({
+        message: "login"
+    }, (response) => {
+        console.log('response ==> ',response);
+    })
+}
+
 class App extends React.Component {
     render() {
         const {
             comments
         } = this.props
-        // fetchJob({
-        //     companyName: 'nike',
-        //     jobName: 'mj'   
-        // }).then(result => {
-        //     console.log('fetchJob=>', result );
-        // })
-        createJob({
-                companyName: 'sudo inc',
-                jobName: 'denny',
-                jobNo: 'asdfgh1234'
-            })
-            .then(result => {
-                console.log('result=>', result);
-            })
+
         return (
-            <div>basic</div>
+            <div>
+                test app container
+                <a href="" onClick={clickHandler}>facebook login</a>
+            </div>
         )
     }
 }

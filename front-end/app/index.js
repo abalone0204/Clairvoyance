@@ -1,4 +1,7 @@
 import Root from './containers/Root'
 import store from './store.js'
 
-ReactDOM.render(<Root store={store}/>, document.getElementById('container'))
+
+export default function main(containerId) {
+    ReactDOM.render(<Root store={store}/>, document.getElementById(containerId))
+}

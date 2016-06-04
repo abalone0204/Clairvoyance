@@ -5,9 +5,10 @@ const path = require('path')
 module.exports = {
     devtool: 'source-map',
     entry: {
+        eventPage: './front-end/eventPage.js',
         popup: './front-end/popup.js',
-        content: './front-end/content.js',
-        app: './front-end/app/index.js'
+        content: './front-end/content.js'
+        // app: './front-end/app/index.js'
     },
     output: {
         path: path.resolve(__dirname, "dist"),

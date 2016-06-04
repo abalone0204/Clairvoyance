@@ -3,22 +3,26 @@
   "name": "Clairvoyance",
   "description": "This extension shows a Google Image search result for the current page",
   "version": "1.0",
-
+  "author": "clver",
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["./dist/eventPage-bundle.js"],
+    "persistent": false
   },
   "permissions": [
     "tabs",
     "activeTab",
     "contentSettings",
-    "webRequest",
     "https://ajax.googleapis.com/"
   ],
-  "content_scripts": [
-    {
-      "matches": ["http://www.104.com.tw/job/*"],
-      "js": ["./dist/content-bundle.js"]
-    }
-  ]
+  "content_scripts": [{
+    "matches": [
+      "http://www.104.com.tw/job/*",
+      "http://localhost:8080/*"
+    ],
+    "js": ["./dist/content-bundle.js"]
+  }]
 }

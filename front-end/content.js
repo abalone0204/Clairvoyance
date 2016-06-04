@@ -1,5 +1,5 @@
 import providers from './app/providers'
-
+import renderApp from './app'
 
 const jobTitle = providers['104'].getJobTitile()
 const companyName = providers['104'].getCompanyName()
@@ -11,6 +11,4 @@ console.log(jobTitle,companyName);
 node.id = nodeId
 document.body.appendChild(node)
 
-ReactDOM.render(<h1>yooooooooooo</h1>,
-    document.getElementById(nodeId)
-    )
+renderApp(nodeId)

@@ -2,3 +2,4 @@ node_modules
 dist
 *.log
 config.json
+chromeExtension/dist/*
