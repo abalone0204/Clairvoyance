@@ -8,7 +8,7 @@ const {
 } = config.dev.auth
 
 const scope = [
-    'email', 'public_profile', 'user_about_me', 
+    'email', 'public_profile', 'user_about_me',
     'user_posts', 'user_tagged_places'
 ]
 const url = `https://www.facebook.com/dialog/oauth?client_id=${clientId}&redirect_uri=${redirectUri}&auth_type=rerequest&scope=${scope.join(',')}`
@@ -27,32 +27,40 @@ function doneFetchCode(authTabId, tabId, changeInfo, tab) {
     )
 }
 
+function fetchAccessToken(code, originTabIndex, sendResponse, tabId) {
+    const options = {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        mode: 'cors',
+        body: JSON.stringify({
+            code
+        })
+    }
+
+    fetch(authUri, options)
+        .then(response => response.json())
+        .then(data => {
+
+            sendResponse({
+                data
+            })
+
+            chrome.tabs.highlight({
+                'tabs': originTabIndex
+            }, () => chrome.tabs.remove(tabId))
+
+        })
+
+
+}
 
 function tabUpdateHandler(authTabId, originTabIndex, sendResponse) {
     return (tabId, changeInfo, tab) => {
         if (doneFetchCode(authTabId, tabId, changeInfo, tab)) {
             const code = getQueryString(tab.url, 'code')
-            const options = {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                mode: 'cors',
-                body: JSON.stringify({
-                    code
-                })
-            }
-
-            fetch(authUri, options)
-                .then(response => response.json())
-                .then(data => {
-                    sendResponse({data})
-                    chrome.tabs.highlight({
-                        'tabs': originTabIndex
-                    }, () => chrome.tabs.remove(tabId))
-
-                })
-
+            fetchAccessToken(code, originTabIndex, sendResponse, tabId)
         }
     }
 }
