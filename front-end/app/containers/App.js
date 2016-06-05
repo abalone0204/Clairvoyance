@@ -4,6 +4,7 @@ import {
 
 import oauthCallback from '../../chrome/oauthCallback.js'
 
+
 const clickHandler = (e) => {
     e.preventDefault()
     chrome.runtime.sendMessage({
@@ -42,7 +43,6 @@ class App extends React.Component {
         const {
             comments
         } = this.props
-
         return (
             <div>
                 test app container
