@@ -54,6 +54,7 @@
     },
     user: {
         uid,
+        status,
         name,
         email,
         comments

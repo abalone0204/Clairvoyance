@@ -14,9 +14,9 @@ import {
 } from '../actions/login.js'
 
 export function* watchRequestLogin() {
-    yield call(takeEvery, REQUEST_LOGIN, loginProcess)
+    yield call(takeEvery, REQUEST_LOGIN, loginFlow)
 }
 
-export function* loginProcess(action) {
-
+export function* loginFlow(action) {
+        
 }
