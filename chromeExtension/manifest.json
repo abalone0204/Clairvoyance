@@ -13,6 +13,7 @@
     "persistent": false
   },
   "permissions": [
+    "storage",
     "tabs",
     "activeTab",
     "contentSettings",

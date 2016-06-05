@@ -14,11 +14,35 @@ const clickHandler = (e) => {
     chrome.runtime.sendMessage({
         message: "login"
     }, (response) => {
-        console.log('response ==> ',response);
+        chrome.storage.sync.set({'access_token': response.access_token})
     })
 }
 
+const getAccessTokenHandler = (e) => {
+    e.preventDefault()
+    chrome.storage.sync.get('access_token', (item) =>{
+        console.log('item ==>', item);
+    })
+}
+
+const clearHandler = (e) => {
+    e.preventDefault()
+    chrome.storage.sync.clear()
+}
+
 class App extends React.Component {
+
+    componentWillMount() {
+        chrome.storage.sync.get('access_token', (item) =>{
+            console.log('item ==>', item);
+            if (!!item['access_token']) {
+                console.log('Access token exists:', item['access_token']);
+            } else {
+                console.log('access token not found');
+            }
+        })       
+    }
+
     render() {
         const {
             comments
@@ -27,7 +51,15 @@ class App extends React.Component {
         return (
             <div>
                 test app container
-                <a href="" onClick={clickHandler}>facebook login</a>
+                <div>
+                    <a href="" onClick={clickHandler}>facebook login</a>
+                </div>
+                <div>
+                    <a href="" onClick={getAccessTokenHandler}>get access_token</a>
+                </div>
+                <div>
+                    <a href="" onClick={clearHandler}> clear</a>
+                </div>
             </div>
         )
     }

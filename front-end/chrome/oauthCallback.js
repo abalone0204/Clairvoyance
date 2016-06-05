@@ -8,8 +8,7 @@ const {
 } = config.dev.auth
 
 const scope = [
-    'email', 'public_profile', 'user_about_me',
-    'user_posts', 'user_tagged_places'
+    'email', 'public_profile'
 ]
 const url = `https://www.facebook.com/dialog/oauth?client_id=${clientId}&redirect_uri=${redirectUri}&auth_type=rerequest&scope=${scope.join(',')}`
 
@@ -43,9 +42,7 @@ function fetchAccessToken(code, originTabIndex, sendResponse, tabId) {
         .then(response => response.json())
         .then(data => {
 
-            sendResponse({
-                data
-            })
+            sendResponse(data)
 
             chrome.tabs.highlight({
                 'tabs': originTabIndex
