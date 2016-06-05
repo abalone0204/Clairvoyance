@@ -2,11 +2,6 @@ import {
     connect
 } from 'react-redux'
 
-import fetchComments from '../../API/fetchComments.js'
-import createComment from '../../API/createComment.js'
-import fetchJob from '../../API/fetchJob.js'
-import createJob from '../../API/createJob.js'
-
 import oauthCallback from '../../chrome/oauthCallback.js'
 
 const clickHandler = (e) => {
@@ -32,16 +27,16 @@ const clearHandler = (e) => {
 
 class App extends React.Component {
 
-    componentWillMount() {
-        chrome.storage.sync.get('access_token', (item) =>{
-            console.log('item ==>', item);
-            if (!!item['access_token']) {
-                console.log('Access token exists:', item['access_token']);
-            } else {
-                console.log('access token not found');
-            }
-        })       
-    }
+    // componentWillMount() {
+    //     chrome.storage.sync.get('access_token', (item) =>{
+    //         console.log('item ==>', item);
+    //         if (!!item['access_token']) {
+    //             console.log('Access token exists:', item['access_token']);
+    //         } else {
+    //             console.log('access token not found');
+    //         }
+    //     })       
+    // }
 
     render() {
         const {
