@@ -12,6 +12,10 @@ import {
 } from 'redux-saga/effects'
 
 import {
+    REQUEST_FETCH_COMMENTS
+} from 'actions/fetchComments.js'
+
+import {
     REQUEST_LEAVE_COMMENT,
     FAIL_TO_LEAVE_COMMENT,
     SUCCESS_LEAVE_COMMENT
@@ -53,22 +57,34 @@ describe('Sagas/ Leave comment', () => {
             })
 
             it('should validate access token', () => {
-                const expected= call(checkAccessToken, {accessToken:params.accessToken})
-                const actual = iterator.next().value    
+                const expected = call(checkAccessToken, {
+                    accessToken: params.accessToken
+                })
+                const actual = iterator.next().value
                 assert.deepEqual(expected, actual)
             })
 
-            it('should create comment',  ()=> {
-                const expected= call(createComment, params)
-                const actual = iterator.next(true).value    
-                assert.deepEqual(expected, actual)                
+            it('should create comment', () => {
+                const expected = call(createComment, params)
+                const actual = iterator.next(true).value
+                assert.deepEqual(expected, actual)
+            })
+
+            it('should refetch the comments', () => {
+                const expected = put({
+                    type: REQUEST_FETCH_COMMENTS,
+                    job_id: params.job_id,
+                    accessToken: params.accessToken,
+                })
+                const actual = iterator.next().value
+                assert.deepEqual(expected, actual)
             })
 
         })
 
         describe('with invalid token', () => {
-            it('should', function () {
-                
+            it('should', function() {
+
             })
         })
     })

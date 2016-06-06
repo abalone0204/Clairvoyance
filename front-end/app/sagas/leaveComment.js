@@ -21,6 +21,10 @@ import {
     SUCCESS_LEAVE_COMMENT
 } from '../actions/leaveComment.js'
 
+import {
+    REQUEST_FETCH_COMMENTS
+} from '../actions/fetchComments.js'
+
 export function* watchRequestLeaveComment() {
     yield call(takeEvery, REQUEST_LEAVE_COMMENT, leaveCommentFlow)
 }
@@ -32,7 +36,11 @@ export function* leaveCommentFlow(action) {
     })
     if (valid) {
         const comment = yield call(createComment, params)
-        // yield put({type: })
+        yield put({
+            type: REQUEST_FETCH_COMMENTS,
+            job_id: params.job_id,
+            accessToken: params.accessToken
+        })
     } else {
 
     }
