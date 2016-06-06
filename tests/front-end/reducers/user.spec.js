@@ -38,7 +38,7 @@ describe('Reducers/ User', () => {
         }
         const expected = {
             status: 'complete',
-            user: mockUser
+            info: mockUser
         }
         const actual = user(getInitState(), {
             type: SUCCESS_LOGIN,

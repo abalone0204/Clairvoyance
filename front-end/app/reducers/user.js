@@ -15,7 +15,7 @@ export default function user(state={
         case SUCCESS_LOGIN:
             return {
                 status: 'complete',
-                user: action.user
+                info: action.user
             }
         case FAIL_TO_LOGIN:
             return {
