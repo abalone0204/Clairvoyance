@@ -3,17 +3,16 @@ import {
     parseJSON
 } from './helper.js'
 
-import config from '../../config.json'
+import config from '../../../config.json'
 
-export default function fetchJob(params) {
+export default function createJob({companyName, jobName, jobNo}) {
     const {backend} = config
     const options = {
-        method: 'GET',
         headers: {
-            "X-Company-Name": params.companyName,
-            "X-Job-Name": params.jobName,
-            "X-E04-Job-No": params.jobNo
+            "Content-Type": "application/json"
         },
+        method: 'POST',
+        body: JSON.stringify({companyName, jobName, jobNo}),
         mode: 'cors'
     }
     return fetch(`${backend}/jobs`, options)

@@ -3,7 +3,7 @@ import {
     parseJSON
 } from './helper.js'
 
-import config from '../../config.json'
+import config from '../../../config.json'
 
 export default function createComment({job_id, source, content}) {
     const {backend} = config

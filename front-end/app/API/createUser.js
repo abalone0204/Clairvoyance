@@ -2,13 +2,14 @@ import {
     checkStatus,
     parseJSON
 } from './helper.js'
-import config from '../../config.json'
+
+import config from '../../../config.json'
 
 
-export default function fetchUser({accessToken}) {
+export default function createUser({accessToken}) {
     const {backend} = config
     const options = {
-        method: 'GET',
+        method: 'POST',
         headers: {
             'X-Access-Token': accessToken
         },
