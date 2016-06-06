@@ -2,20 +2,19 @@ import {
     checkStatus,
     parseJSON
 } from './helper.js'
-import config from '../../config.json'
 
+import config from '../../../config.json'
 
-export default function createUser({accessToken}) {
+export default function fetchComments(params) {
     const {backend} = config
     const options = {
-        method: 'POST',
+        method: 'GET',
         headers: {
-            'X-Access-Token': accessToken
+            "X-Job-Id": params.jobId
         },
         mode: 'cors'
     }
-
-    return fetch(`${backend}/users`, options)
+    return fetch(`${backend}/comments`, options)
         .then(checkStatus)
         .then(parseJSON)
 }
