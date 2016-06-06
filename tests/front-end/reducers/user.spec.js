@@ -22,11 +22,14 @@ describe('Reducers/ User', () => {
     })
 
     it('should handle request login', () => {
+        const access_token = 'mock_token'
         const expected = {
-            status: 'loading'
+            status: 'loading',
+            access_token
         }
         const actual = user(getInitState(), {
-            type: REQUEST_LOGIN
+            type: REQUEST_LOGIN,
+            access_token
         })
         assert.deepEqual(expected, actual)
     })
