@@ -7,7 +7,7 @@ export function requestLeaveComment({
     source,
     content,
     anonymous,
-    accessToken,
+    access_token,
     type
 }) {
     return {
@@ -18,7 +18,7 @@ export function requestLeaveComment({
             content,
             anonymous,
             type,
-            accessToken
+            access_token
         }
     }
 }

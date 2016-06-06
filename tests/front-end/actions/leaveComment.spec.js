@@ -20,7 +20,7 @@ describe('Actions/ Leave comments', () => {
             source: 'goo',
             content: 'no',
             anonymous: true,
-            accessToken: 'mocktoken',
+            access_token: 'mocktoken',
             type: 'good'
         }
         const expected = {
