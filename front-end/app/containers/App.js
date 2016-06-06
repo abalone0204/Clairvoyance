@@ -3,14 +3,20 @@ import {
 } from 'react-redux'
 
 import oauthCallback from '../../chrome/oauthCallback.js'
+import {requestLogin} from '../actions/login.js'
 
-
-const clickHandler = (e) => {
+const clickHandler = (dispatch) => (e) => {
     e.preventDefault()
     chrome.runtime.sendMessage({
         message: "login"
     }, (response) => {
-        chrome.storage.sync.set({'access_token': response.access_token})
+        console.log('get resopnse: ', response);
+        console.log('access token: ', response.access_token);
+        console.log('typeof response: ', typeof(response));
+        chrome.storage.sync.set({'access_token': response.access_token}, () => {
+            console.log('success set response.access_token: ',response.access_token);
+            dispatch(requestLogin(response.access_token))
+        })
     })
 }
 
@@ -28,26 +34,30 @@ const clearHandler = (e) => {
 
 class App extends React.Component {
 
-    // componentWillMount() {
-    //     chrome.storage.sync.get('access_token', (item) =>{
-    //         console.log('item ==>', item);
-    //         if (!!item['access_token']) {
-    //             console.log('Access token exists:', item['access_token']);
-    //         } else {
-    //             console.log('access token not found');
-    //         }
-    //     })       
-    // }
+    componentWillMount() {
+        const {dispatch} = this.props
+        chrome.storage.sync.get('access_token', (item) =>{
+            console.log('item ==>', item);
+            if (!!item['access_token']) {
+                dispatch(requestLogin(item['access_token']))
+            } else {
+                console.log('access token not found');
+            }
+        })       
+    }
 
     render() {
         const {
-            comments
+            comments, user, dispatch
         } = this.props
+        console.log('user===>',user);
         return (
             <div>
                 test app container
+                {user.user ? <div>{user.user.user_name}</div>: null}
+                
                 <div>
-                    <a href="" onClick={clickHandler}>facebook login</a>
+                    <a href="" onClick={clickHandler(dispatch)}>facebook login</a>
                 </div>
                 <div>
                     <a href="" onClick={getAccessTokenHandler}>get access_token</a>

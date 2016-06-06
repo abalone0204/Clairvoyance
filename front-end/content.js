@@ -1,6 +1,8 @@
 import providers from './app/providers'
 import renderApp from './app'
 
+console.log('load content script');
+
 const jobTitle = providers['104'].getJobTitile()
 const companyName = providers['104'].getCompanyName()
 

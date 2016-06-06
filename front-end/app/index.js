@@ -1,3 +1,4 @@
+import 'babel-polyfill'
 import Root from './containers/Root'
 import store from './store.js'
 

@@ -1,7 +1,7 @@
 import {watchRequestLogin} from './login.js'
 
-const rootSaga = {
-    watchRequestLogin()
+export default function* rootSaga() {
+    yield [
+        watchRequestLogin()
+    ]
 }
-
-export default rootSaga
