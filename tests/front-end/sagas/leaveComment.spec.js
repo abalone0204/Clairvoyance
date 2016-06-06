@@ -83,8 +83,18 @@ describe('Sagas/ Leave comment', () => {
         })
 
         describe('with invalid token', () => {
-            it('should', function() {
-
+            const iterator = leaveCommentFlow({
+                type: REQUEST_LEAVE_COMMENT,
+                params
+            })
+            iterator.next()
+            it('should call fail to leave comment', function() {
+                const expected = put({
+                    type: FAIL_TO_LEAVE_COMMENT,
+                    error: new Error('Invalid access token')
+                })
+                const actual = iterator.next(false).value
+                assert.deepEqual(expected, actual)
             })
         })
     })

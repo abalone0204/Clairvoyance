@@ -42,6 +42,6 @@ export function* leaveCommentFlow(action) {
             accessToken: params.accessToken
         })
     } else {
-
+        yield put({type: FAIL_TO_LEAVE_COMMENT, error: new Error('Invalid access token')})
     }
 }
