@@ -32,14 +32,14 @@ export function* watchRequestLeaveComment() {
 export function* leaveCommentFlow(action) {
     const params = action.params
     const valid = yield call(checkAccessToken, {
-        accessToken: params.accessToken
+        access_token: params.access_token
     })
     if (valid) {
         const comment = yield call(createComment, params)
         yield put({
             type: REQUEST_FETCH_COMMENTS,
             job_id: params.job_id,
-            accessToken: params.accessToken
+            access_token: params.access_token
         })
     } else {
         yield put({type: FAIL_TO_LEAVE_COMMENT, error: new Error('Invalid access token')})

@@ -5,7 +5,7 @@ import {
 
 import config from '../../../config.json'
 
-export default function createComment({job_id, source, content, anonymous, accessToken, type}) {
+export default function createComment({job_id, source, content, anonymous, access_token, type}) {
     const {backend} = config
     const options = {
         method: 'POST',
@@ -13,7 +13,7 @@ export default function createComment({job_id, source, content, anonymous, acces
             "Content-Type": "application/json"
         },
         mode: 'cors',
-        body: JSON.stringify({job_id, source, content, anonymous, accessToken, type})
+        body: JSON.stringify({job_id, source, content, anonymous, access_token, type})
     }
 
     return fetch(`${backend}/comments`, options)

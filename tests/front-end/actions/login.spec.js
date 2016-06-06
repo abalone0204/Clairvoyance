@@ -15,12 +15,12 @@ import {
 describe('Actions/ Login', () => {
 
     it('should create request login action', () => {
-        const accessToken = "mock_token"
+        const access_token = "mock_token"
         const expected = {
             type: REQUEST_LOGIN,
-            accessToken
+            access_token
         }
-        const actual = requestLogin(accessToken)
+        const actual = requestLogin(access_token)
         assert.deepEqual(expected, actual)
     })
 

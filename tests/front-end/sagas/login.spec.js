@@ -41,16 +41,16 @@ describe('Sagas/ Login', () => {
     describe('loginFlow', function() {
 
         describe('with valid token', function() {
-            const accessToken = "VALID_MOCK_TOKEN"
+            const access_token = "VALID_MOCK_TOKEN"
             const mockAction = {
                 type: REQUEST_LOGIN,
-                accessToken
+                access_token
             }
             const iterator = loginFlow(mockAction)
 
             it('should validate the access token', function() {
                 const expected = call(checkAccessToken, {
-                    accessToken
+                    access_token
                 })
                 const actual = iterator.next().value
                 assert.deepEqual(expected, actual)
@@ -58,7 +58,7 @@ describe('Sagas/ Login', () => {
 
             it('should try to fetch user', () => {
                 const expected = call(fetchUser, {
-                    accessToken
+                    access_token
                 })
                 const actual = iterator.next(true).value
                 assert.deepEqual(expected, actual)
@@ -71,7 +71,7 @@ describe('Sagas/ Login', () => {
                     fb_id: '1231231'
                 }
                 const expected = call(userHandler, mockUser, {
-                    accessToken
+                    access_token
                 })
                 const actual = iterator.next(mockUser).value
                 assert.deepEqual(expected, actual)
@@ -107,15 +107,15 @@ describe('Sagas/ Login', () => {
                 })
 
                 describe('user not exist', () => {
-                    const accessToken = 'mockAccessTokesssn'
+                    const access_token = 'mockAccessTokesssn'
                     const user = null
                     const iterator = userHandler(user, {
-                        accessToken
+                        access_token
                     })
 
                     it('should create an user', () => {
                         const expected = call(createUser, {
-                            accessToken
+                            access_token
                         })
                         const actual = iterator.next().value
                         assert.deepEqual(expected, actual)
@@ -150,10 +150,10 @@ describe('Sagas/ Login', () => {
         })
 
         describe('with invalid token', function() {
-            const accessToken = "INVALID_MOCK_TOKEN"
+            const access_token = "INVALID_MOCK_TOKEN"
             const iterator = loginFlow({
                 type: REQUEST_LOGIN,
-                accessToken
+                access_token
             })
             iterator.next()
             it('should return fail to login and error message', () => {

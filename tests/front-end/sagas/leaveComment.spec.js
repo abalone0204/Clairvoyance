@@ -30,6 +30,7 @@ import {
 } from 'sagas/leaveComment.js'
 
 describe('Sagas/ Leave comment', () => {
+
     describe('watchRequestLeaveComment', function() {
         const iterator = watchRequestLeaveComment()
         it('should take every request leave comment action', () => {
@@ -46,7 +47,7 @@ describe('Sagas/ Leave comment', () => {
             source: 'goo',
             content: 'no',
             anonymous: true,
-            accessToken: 'mocktoken',
+            access_token: 'mocktoken',
             type: 'good'
         }
 
@@ -58,7 +59,7 @@ describe('Sagas/ Leave comment', () => {
 
             it('should validate access token', () => {
                 const expected = call(checkAccessToken, {
-                    accessToken: params.accessToken
+                    access_token: params.access_token
                 })
                 const actual = iterator.next().value
                 assert.deepEqual(expected, actual)
@@ -74,7 +75,7 @@ describe('Sagas/ Leave comment', () => {
                 const expected = put({
                     type: REQUEST_FETCH_COMMENTS,
                     job_id: params.job_id,
-                    accessToken: params.accessToken,
+                    access_token: params.access_token,
                 })
                 const actual = iterator.next().value
                 assert.deepEqual(expected, actual)

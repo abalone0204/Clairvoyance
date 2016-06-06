@@ -5,12 +5,12 @@ import {
 import config from '../../../config.json'
 
 
-export default function fetchUser({accessToken}) {
+export default function fetchUser({access_token}) {
     const {backend} = config
     const options = {
         method: 'GET',
         headers: {
-            'X-Access-Token': accessToken
+            'X-Access-Token': access_token
         },
         mode: 'cors'
     }

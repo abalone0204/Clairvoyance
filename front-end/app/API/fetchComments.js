@@ -10,7 +10,7 @@ export default function fetchComments(params) {
     const options = {
         method: 'GET',
         headers: {
-            "X-Job-Id": params.jobId
+            "X-Job-Id": params.job_id
         },
         mode: 'cors'
     }

@@ -6,12 +6,12 @@ import {
 import config from '../../../config.json'
 
 
-export default function createUser({accessToken}) {
+export default function createUser({access_token}) {
     const {backend} = config
     const options = {
         method: 'POST',
         headers: {
-            'X-Access-Token': accessToken
+            'X-Access-Token': access_token
         },
         mode: 'cors'
     }
