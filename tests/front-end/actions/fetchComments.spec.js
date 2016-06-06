@@ -3,10 +3,10 @@ import {
 } from 'chai'
 
 import {
-    REQUEST_COMMENTS,
-    FAIL_GET_COMMENTS,
+    REQUEST_FETCH_COMMENTS,
+    FAIL_TO_FETCH_COMMENTS,
     RECEIVE_COMMENTS,
-    requestComments,
+    requestFetchComments,
     failToGetComments,
     receiveComments
 } from 'actions/fetchComments.js'
@@ -15,10 +15,12 @@ import {
 describe('Actions/ Fetch comments', () => {
 
     it('should create request comments action', () => {
+        const job_id= '123123'
         const expected = {
-            type: REQUEST_COMMENTS
+            type: REQUEST_FETCH_COMMENTS,
+            job_id
         }
-        const actual = requestComments()
+        const actual = requestFetchComments(job_id)
         assert.deepEqual(expected, actual)
     })
 
@@ -27,7 +29,7 @@ describe('Actions/ Fetch comments', () => {
             message: 'something wrong'
         }
         const expected = {
-            type: FAIL_GET_COMMENTS,
+            type: FAIL_TO_FETCH_COMMENTS,
             error
         }
         const actual = failToGetComments(error)

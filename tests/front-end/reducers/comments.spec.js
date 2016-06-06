@@ -3,8 +3,8 @@ import {
 } from 'chai'
 
 import {
-    REQUEST_COMMENTS,
-    FAIL_GET_COMMENTS,
+    REQUEST_FETCH_COMMENTS,
+    FAIL_TO_FETCH_COMMENTS,
     RECEIVE_COMMENTS
 } from 'actions/fetchComments.js'
 
@@ -14,7 +14,7 @@ describe('Reducer/ Comments', () => {
     const getInitState = () => {
         return {
             status: 'init',
-            comments: [],
+            data: [],
             error: null
         }
     }
@@ -26,12 +26,12 @@ describe('Reducer/ Comments', () => {
 
     it('should handle error state', () => {
         const action = {
-            type: FAIL_GET_COMMENTS,
+            type: FAIL_TO_FETCH_COMMENTS,
             error: 'something wrong'
         }
         const expected = {
             status: 'error',
-            comments: [],
+            data: [],
             error: 'something wrong'
         }
         const actual = comments(getInitState(), action)
@@ -45,7 +45,7 @@ describe('Reducer/ Comments', () => {
         }
         const expected = {
             status: 'complete',
-            comments: [{text: 'gogogog'},{text: 'comecomecome'}],
+            data: [{text: 'gogogog'},{text: 'comecomecome'}],
             error: null
         }
         const actual = comments(getInitState(), action)

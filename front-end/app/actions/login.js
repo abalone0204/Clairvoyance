@@ -2,10 +2,10 @@ export const REQUEST_LOGIN = 'REQUEST_LOGIN'
 export const FAIL_TO_LOGIN = 'FAIL_TO_LOGIN'
 export const SUCCESS_LOGIN = 'SUCCESS_LOGIN'
 
-export function requestLogin(accessToken) {
+export function requestLogin(access_token) {
     return {
         type: REQUEST_LOGIN,
-        accessToken
+        access_token
     }
 }
 

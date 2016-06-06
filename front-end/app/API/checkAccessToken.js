@@ -4,9 +4,9 @@ import {
 } from './helper.js'
 
 export default function checkAccessToken({
-    accessToken
+    access_token
 }) {
-    const url = `https://graph.facebook.com/debug_token?input_token=${accessToken}&access_token=${accessToken}`
+    const url = `https://graph.facebook.com/debug_token?input_token=${access_token}&access_token=${access_token}`
     return fetch(url)
         .then(checkStatus)
         .then(parseJSON)

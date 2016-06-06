@@ -5,12 +5,12 @@ import {
 
 import config from '../../../config.json'
 
-export default function fetchComments(params) {
+export default function fetchComments(job_id) {
     const {backend} = config
     const options = {
         method: 'GET',
         headers: {
-            "X-Job-Id": params.jobId
+            "X-Job-Id": job_id
         },
         mode: 'cors'
     }

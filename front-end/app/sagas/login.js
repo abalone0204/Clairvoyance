@@ -23,15 +23,15 @@ export function* watchRequestLogin() {
 export function* loginFlow(action) {
     try {
         const valid = yield call(checkAccessToken, {
-            accessToken: action.accessToken
+            access_token: action.access_token
         })
 
         if (valid) {
             const user = yield call(fetchUser, {
-                accessToken: action.accessToken
+                access_token: action.access_token
             })
             yield call(userHandler, user, {
-                accessToken: action.accessToken
+                access_token: action.access_token
             })
         } else {
             yield put({
@@ -48,7 +48,7 @@ export function* loginFlow(action) {
 }
 
 export function* userHandler(user, {
-    accessToken
+    access_token
 }) {
     try {
         if (!!user) {
@@ -58,7 +58,7 @@ export function* userHandler(user, {
             })
         } else {
             const response = yield call(createUser, {
-                accessToken
+                access_token
             })
             yield put({
                 type: SUCCESS_LOGIN,

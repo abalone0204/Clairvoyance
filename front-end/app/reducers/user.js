@@ -4,24 +4,26 @@ import {
     SUCCESS_LOGIN
 } from '../actions/login.js'
 
-export default function user(state={
+export default function user(state = {
     status: 'init'
 }, action) {
-    switch(action.type) {
+    switch (action.type) {
         case REQUEST_LOGIN:
-            return {
-                status: 'loading'
-            }
+            return Object.assign({}, state, {
+                status: 'loading',
+                access_token: action.access_token
+            })
         case SUCCESS_LOGIN:
-            return {
+            return Object.assign({}, state, {
                 status: 'complete',
                 info: action.user
-            }
+            })
+            return
         case FAIL_TO_LOGIN:
-            return {
+            return Object.assign({}, state, {
                 status: 'failed',
                 error: action.error
-            }
+            })
         default:
             return state
     }

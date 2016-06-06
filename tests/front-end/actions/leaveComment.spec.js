@@ -15,10 +15,19 @@ import {
 describe('Actions/ Leave comments', () => {
 
     it('should create request leave comment action', () => {
-        const expected = {
-            type: REQUEST_LEAVE_COMMENT
+        const params = {
+            job_id: '1234',
+            source: 'goo',
+            content: 'no',
+            anonymous: true,
+            access_token: 'mocktoken',
+            type: 'good'
         }
-        const actual = requestLeaveComment()
+        const expected = {
+            type: REQUEST_LEAVE_COMMENT,
+            params
+        }
+        const actual = requestLeaveComment(params)
         assert.deepEqual(expected, actual)
     })
 
