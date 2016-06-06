@@ -3,8 +3,8 @@ import {
 } from 'chai'
 
 import {
-    REQUEST_COMMENTS,
-    FAIL_GET_COMMENTS,
+    REQUEST_FETCH_COMMENTS,
+    FAIL_TO_FETCH_COMMENTS,
     RECEIVE_COMMENTS
 } from 'actions/fetchComments.js'
 
@@ -26,7 +26,7 @@ describe('Reducer/ Comments', () => {
 
     it('should handle error state', () => {
         const action = {
-            type: FAIL_GET_COMMENTS,
+            type: FAIL_TO_FETCH_COMMENTS,
             error: 'something wrong'
         }
         const expected = {

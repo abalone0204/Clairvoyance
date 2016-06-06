@@ -61,6 +61,12 @@ class App extends React.Component {
                 <div>
                     <a href="" onClick={clearHandler}> clear</a>
                 </div>
+                <div>
+                    <input ref='comment' type="text"/>
+                    <button>推</button>
+                    <button>噓</button>
+                    <button>-></button>
+                </div>
             </div>
         )
     }

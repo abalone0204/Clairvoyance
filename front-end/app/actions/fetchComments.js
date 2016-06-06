@@ -1,16 +1,17 @@
-export const REQUEST_COMMENTS = 'REQUEST_COMMENTS'
-export const FAIL_GET_COMMENTS = 'FAIL_GET_COMMENTS'
+export const REQUEST_FETCH_COMMENTS = 'REQUEST_FETCH_COMMENTS'
+export const FAIL_TO_FETCH_COMMENTS = 'FAIL_TO_FETCH_COMMENTS'
 export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS'
 
-export function requestComments() {
+export function requestFetchComments(accessToken) {
     return {
-        type: REQUEST_COMMENTS
+        type: REQUEST_FETCH_COMMENTS,
+        accessToken
     }
 }
 
 export function failToGetComments(error) {
     return {
-        type: FAIL_GET_COMMENTS,
+        type: FAIL_TO_FETCH_COMMENTS,
         error
     }
 }

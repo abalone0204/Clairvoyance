@@ -1,6 +1,6 @@
 import {
-    REQUEST_COMMENTS,
-    FAIL_GET_COMMENTS,
+    REQUEST_FETCH_COMMENTS,
+    FAIL_TO_FETCH_COMMENTS,
     RECEIVE_COMMENTS
 } from '../actions/fetchComments.js'
 
@@ -10,13 +10,13 @@ export default function comments(state = {
     error: null
 }, action) {
     switch (action.type) {
-        case REQUEST_COMMENTS:
+        case REQUEST_FETCH_COMMENTS:
             return Object.assign({}, state, {
                 status: 'loading',
                 error: null
             })
             break
-        case FAIL_GET_COMMENTS:
+        case FAIL_TO_FETCH_COMMENTS:
             return Object.assign({}, state,{
                 status: 'error',
                 error: action.error
