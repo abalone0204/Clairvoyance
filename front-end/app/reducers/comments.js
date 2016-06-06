@@ -6,7 +6,7 @@ import {
 
 export default function comments(state = {
     status: 'init',
-    comments: [],
+    data: [],
     error: null
 }, action) {
     switch (action.type) {
@@ -25,7 +25,7 @@ export default function comments(state = {
         case RECEIVE_COMMENTS:
             return Object.assign({}, state, {
                 status: 'complete',
-                comments: action.comments
+                data: action.comments
             })
             break
         default:

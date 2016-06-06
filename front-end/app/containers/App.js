@@ -74,11 +74,12 @@ class App extends React.Component {
         const {
             access_token
         } = user
+        console.log('comments=>',comments.data);
         return (
             <div>
                 test app container
                 {user.status === 'complete' ? <div>{user.info.user_name}</div>: null}
-                
+
                 <div>
                     <a href="" onClick={clickHandler(dispatch)}>facebook login</a>
                 </div>

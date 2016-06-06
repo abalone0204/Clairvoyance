@@ -38,8 +38,7 @@ export function* leaveCommentFlow(action) {
         const comment = yield call(createComment, params)
         yield put({
             type: REQUEST_FETCH_COMMENTS,
-            job_id: params.job_id,
-            access_token: params.access_token
+            job_id: params.job_id
         })
     } else {
         yield put({type: FAIL_TO_LEAVE_COMMENT, error: new Error('Invalid access token')})

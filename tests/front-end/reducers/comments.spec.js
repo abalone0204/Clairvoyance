@@ -14,7 +14,7 @@ describe('Reducer/ Comments', () => {
     const getInitState = () => {
         return {
             status: 'init',
-            comments: [],
+            data: [],
             error: null
         }
     }
@@ -31,7 +31,7 @@ describe('Reducer/ Comments', () => {
         }
         const expected = {
             status: 'error',
-            comments: [],
+            data: [],
             error: 'something wrong'
         }
         const actual = comments(getInitState(), action)
@@ -45,7 +45,7 @@ describe('Reducer/ Comments', () => {
         }
         const expected = {
             status: 'complete',
-            comments: [{text: 'gogogog'},{text: 'comecomecome'}],
+            data: [{text: 'gogogog'},{text: 'comecomecome'}],
             error: null
         }
         const actual = comments(getInitState(), action)

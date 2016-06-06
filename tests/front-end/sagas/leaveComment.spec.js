@@ -74,8 +74,7 @@ describe('Sagas/ Leave comment', () => {
             it('should refetch the comments', () => {
                 const expected = put({
                     type: REQUEST_FETCH_COMMENTS,
-                    job_id: params.job_id,
-                    access_token: params.access_token,
+                    job_id: params.job_id
                 })
                 const actual = iterator.next().value
                 assert.deepEqual(expected, actual)

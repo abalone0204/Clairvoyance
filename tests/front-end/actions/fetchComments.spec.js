@@ -15,14 +15,12 @@ import {
 describe('Actions/ Fetch comments', () => {
 
     it('should create request comments action', () => {
-        const access_token = "mockToken"
         const job_id= '123123'
         const expected = {
             type: REQUEST_FETCH_COMMENTS,
-            access_token,
             job_id
         }
-        const actual = requestFetchComments({access_token,job_id})
+        const actual = requestFetchComments(job_id)
         assert.deepEqual(expected, actual)
     })
 
