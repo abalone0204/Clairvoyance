@@ -7,8 +7,9 @@ module.exports = {
     entry: {
         eventPage: './front-end/eventPage.js',
         popup: './front-end/popup.js',
-        content: './front-end/content.js'
-        // app: './front-end/app/index.js'
+        content: './front-end/content.js',
+        options: './front-end/options.js'
+            // app: './front-end/app/index.js'
     },
     output: {
         path: path.resolve(__dirname, "dist"),
@@ -20,7 +21,13 @@ module.exports = {
             exclude: /node_modules/,
             loader: 'babel',
             query: {
-                presets: ['es2015', 'react']
+                cacheDirectory: true,
+                plugins: [
+                    'transform-runtime',
+                    'add-module-exports',
+                    'transform-decorators-legacy',
+                ],
+                presets: ['es2015', 'react', 'stage-1'],
             }
         }, {
             test: /\.[s]?css$/,
@@ -32,7 +39,7 @@ module.exports = {
         }, {
             test: /\.json$/,
             loader: 'json-loader'
-        },{
+        }, {
             test: /\.(png|jpg|jpeg|gif|woff)$/,
             loader: 'url-loader?limit=8192?name=[name].[ext]'
         }],
@@ -45,7 +52,8 @@ module.exports = {
     plugins: [
         new webpack.ProvidePlugin({
             React: "react",
-            ReactDOM: "react-dom"
+            ReactDOM: "react-dom",
+            CSSModules: "react-css-modules"
         }),
         new webpack.ProvidePlugin({
             'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
