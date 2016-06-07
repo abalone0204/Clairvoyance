@@ -1,13 +1,13 @@
 import {
-        REQUEST_FETCH_JOB,
+    REQUEST_FETCH_JOB,
     FAIL_TO_FETCH_JOB,
     SUCCESS_FETCH_JOB
 } from '../actions/fetchJob.js'
 
-export default function job(state={
+export default function job(state = {
     status: 'init'
 }, action) {
-    switch(action.type) {
+    switch (action.type) {
         case REQUEST_FETCH_JOB:
             return {
                 status: 'loading',
