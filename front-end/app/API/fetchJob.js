@@ -5,14 +5,20 @@ import {
 
 import config from '../../../config.json'
 
-export default function fetchJob(params) {
-    const {backend} = config
+export default function fetchJob({
+    company_name,
+    job_name,
+    e04_job_no
+}) {
+    const {
+        backend
+    } = config
     const options = {
         method: 'GET',
         headers: {
-            "X-Company-Name": params.company_name,
-            "X-Job-Name": params.job_name,
-            "X-E04-Job-No": params.e04_job_no
+            "X-Company-Name": company_name,
+            "X-Job-Name": job_name,
+            "X-E04-Job-No": e04_job_no
         },
         mode: 'cors'
     }
