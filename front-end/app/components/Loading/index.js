@@ -9,7 +9,8 @@ export default class Loading extends React.Component {
               <div styleName="hands"></div>
               <div styleName="body"></div>
               <div styleName="head">
-                <div styleName="eye"></div>
+                <div styleName="left-eye"></div>
+                <div styleName="right-eye"></div>
               </div>
             </div>
         )

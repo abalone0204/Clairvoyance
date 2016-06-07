@@ -8,7 +8,8 @@ module.exports = {
         eventPage: './front-end/eventPage.js',
         popup: './front-end/popup.js',
         content: './front-end/content.js',
-        options: './front-end/options.js'
+        options: './front-end/options.js',
+        dev: './front-end/dev.js'
             // app: './front-end/app/index.js'
     },
     output: {
