@@ -7,8 +7,37 @@ import {
     requestLogin
 } from '../actions/login.js'
 import {
+    requestFetchJob
+} from '../actions/fetchJob.js'
+import {
     requestLeaveComment
 } from '../actions/leaveComment.js'
+
+import {
+    requestCreateJob
+} from '../actions/createJob.js'
+
+let value = 0
+const createJobHandler = (dispatch) => (e) => {
+    e.preventDefault()
+    value += 1
+    const params = {
+        "company_name": `goo${value}`,
+        "job_name": "test",
+        "e04_job_no": "12313"
+    }
+    dispatch(requestCreateJob(params))
+}
+
+const fetchJobHandler = (dispatch) => (e) => {
+    e.preventDefault()
+    const query = {
+        "company_name": "goo",
+        "job_name": "test",
+        "e04_job_no": "12313"
+    }
+    dispatch(requestFetchJob(query))
+}
 
 const leaveCommentHandler = (type, access_token, dispatch) => (e) => {
     e.preventDefault()
@@ -67,6 +96,7 @@ class App extends React.Component {
 
     render() {
         const {
+            job,
             comments,
             user,
             dispatch
@@ -74,12 +104,17 @@ class App extends React.Component {
         const {
             access_token
         } = user
-        console.log('comments=>',comments.data);
+        console.log('job==>',job);
         return (
             <div>
                 test app container
                 {user.status === 'complete' ? <div>{user.info.user_name}</div>: null}
-
+                <div>
+                    <a href="" onClick={createJobHandler(dispatch)}>create Job</a>
+                </div>
+                <div>
+                    <a href="" onClick={fetchJobHandler(dispatch)}>fetch Job</a>
+                </div>
                 <div>
                     <a href="" onClick={clickHandler(dispatch)}>facebook login</a>
                 </div>

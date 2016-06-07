@@ -17,12 +17,20 @@ describe('Actions/ Create job', () => {
     it('should create request create job action', () => {
         const company_name = 'goo'
         const job_name = 'pm'
+        const e04_job_no = '123123'
         const expected = {
             type: REQUEST_CREATE_JOB,
-            company_name,
-            job_name
+            params: {
+                company_name,
+                job_name,
+                e04_job_no
+            }
         }
-        const actual = requestCreateJob({company_name, job_name})
+        const actual = requestCreateJob({
+            company_name,
+            job_name,
+            e04_job_no
+        })
         assert.deepEqual(expected, actual)
     })
 
@@ -40,16 +48,18 @@ describe('Actions/ Create job', () => {
     })
 
     it('should create success create job action', () => {
-        const notifications = {
-            message: 'done'
+        const job = {
+            id: '1231',
+            company_name: 'goo',
+            job_name: 'work'
         }
 
         const expected = {
             type: SUCCESS_CREATE_JOB,
-            notifications
+            job
         }
 
-        const actual = successCreateJob(notifications)
+        const actual = successCreateJob(job)
         assert.deepEqual(expected, actual)
 
     })
