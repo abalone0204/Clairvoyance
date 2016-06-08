@@ -125,7 +125,7 @@ $staring-eye-color: #00ffff;
   color: $main-color;
   left: 10%;
   top: 5%;
-  animation: breath 1s infinite alternate ease-in-out;
+  animation: breath 0.75s infinite alternate ease-out;
 }
 
 
