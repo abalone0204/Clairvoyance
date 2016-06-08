@@ -13,16 +13,14 @@ export default function fetchJob({
     const {
         backend
     } = config
+
     const options = {
         method: 'GET',
-        headers: {
-            "X-Company-Name": company_name,
-            "X-Job-Name": job_name,
-            "X-E04-Job-No": e04_job_no
-        },
         mode: 'cors'
     }
-    return fetch(`${backend}/jobs`, options)
+
+    const url = `${backend}/jobs?company_name=${company_name}&job_name=${job_name}&e04_job_no=${e04_job_no}`
+    return fetch(url, options)
         .then(checkStatus)
         .then(parseJSON)
 }
