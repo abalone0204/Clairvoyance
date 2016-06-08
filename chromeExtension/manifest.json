@@ -8,6 +8,7 @@
     "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
+  "options_page": "options.html",
   "background": {
     "scripts": ["./dist/eventPage-bundle.js"],
     "persistent": false
@@ -22,8 +23,7 @@
   "content_scripts": [{
     "matches": [
       "https://www.104.com.tw/job/*",
-      "http://www.104.com.tw/job/*",
-      "http://localhost:8080/*"
+      "http://www.104.com.tw/job/*"
     ],
     "js": ["./dist/content-bundle.js"]
   }]

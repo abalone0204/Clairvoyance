@@ -3,6 +3,7 @@ class Popup extends React.Component {
         return (
             <div>
                 <h2>Popup</h2>
+                <a href="" onClick={()=>chrome.tabs.create({'url': "/options.html" } )}>選項</a>
             </div>
         )
     }
