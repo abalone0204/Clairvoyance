@@ -1,11 +1,29 @@
+@import url(http://fonts.googleapis.com/css?family=Julius+Sans+One);
+$main-color: #111;
+$origin-eye-color: #eee;
+$staring-eye-color: #00ffff;
+
+.head {
+  -webkit-backface-visibility: hidden;
+  position: relative;
+  margin: -250px auto;
+  width: 80px;
+  height: 80px;
+  background-color: $main-color;
+  border-radius: 50px;
+  box-shadow: inset -4px 2px 0px 0px $origin-eye-color;
+  animation: node 1.5s infinite alternate;
+  animation-timing-function: ease-out;
+}
+
 .eye {
   width: 20px;
   height: 8px;
-  background-color: #eee;
+  background-color: $origin-eye-color;
   border-radius: 0px 0px 20px 20px;
   position: absolute;
   top: 35px;
-  box-shadow: 0px 0px 0px 0px #eee;
+  box-shadow: 0px 0px 0px 0px $origin-eye-color;
   animation: stare 1.5s infinite alternate;
   animation-timing-function: ease-out;
 }
@@ -19,43 +37,44 @@
   composes: eye;
   left: 50px;
 }
-.head {
-  -webkit-backface-visibility: hidden;
-  position: relative;
-  margin: -250px auto;
-  width: 80px;
-  height: 80px;
-  background-color: #111;
-  border-radius: 50px;
-  box-shadow: inset -4px 2px 0px 0px #eee;
-  -webkit-animation: node 1.5s infinite alternate;
-  -webkit-animation-timing-function: ease-out;
-}
+
+
 .body {
   position: relative;
   margin: 90px auto;
   width: 140px;
   height: 120px;
-  background-color: #111;
+  background-color: $main-color;
   border-radius: 50px/25px;
-  box-shadow: inset -5px 2px 0px 0px #eee;
-  animation: node2 1.5s infinite alternate;
-  animation-timing-function: ease-out;
+  box-shadow: inset -5px 2px 0px 0px;
+  color: $origin-eye-color;
+  animation: node2 1.5s infinite alternate ease-out;
 }
+
+@keyframes breath {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes stare {
   0% {
-    background-color: #eee;
-    box-shadow: 0px 0px 0px 0px #00ffff;
+    background-color: $origin-eye-color;
+    box-shadow: 0px 0px 0px 0px $staring-eye-color;
   }
   50% {
-    background-color: #00ffff;
-    box-shadow: 0px 0px 30px 0px #00ffff;
+    background-color: $staring-eye-color;
+    box-shadow: 0px 0px 30px 0px $staring-eye-color;
   }
   100% {
-    background-color: #eee;
-    box-shadow: 0px 0px 0px 0px #00ffff;
+    background-color: $origin-eye-color;
+    box-shadow: 0px 0px 0px 0px $staring-eye-color;
   }
 }
+
 @keyframes node {
   0% {
     top: 0px;
@@ -67,6 +86,7 @@
     top: 0px;
   }
 }
+
 @keyframes node2 {
   0% {
     top: -5px;
@@ -78,35 +98,21 @@
     top: -5px;
   }
 }
+
 .circ {
   -webkit-backface-visibility: hidden;
   margin: 60px auto;
   width: 180px;
   height: 180px;
-  background-color: #111;
-  border-radius: 0px 0px 50px 50px;
+  background-color: transparent;
   position: relative;
   z-index: -1;
   left: 0%;
   top: 20%;
   overflow: hidden;
 }
-.hands {
-  -webkit-backface-visibility: hidden;
-  margin-top: 140px;
-  width: 120px;
-  height: 120px;
-  position: absolute;
-  background-color: #111;
-  border-radius: 20px;
-  box-shadow: -1px -4px 0px 0px #eee;
-  -webkit-transform: rotate(45deg);
-  top: 75%;
-  left: 16%;
-  z-index: 1;
-  -webkit-animation: node2 1.5s infinite alternate;
-  -webkit-animation-timing-function: ease-out;
-}
+
+
 .load {
   position: absolute;
   width: 100px;
@@ -116,7 +122,10 @@
   font-family: 'Julius Sans One', sans-serif;
   font-size: 30px;
   font-weight: 400;
-  color: #eee;
+  color: $main-color;
   left: 10%;
   top: 5%;
+  animation: breath 1s infinite alternate ease-in-out;
 }
+
+

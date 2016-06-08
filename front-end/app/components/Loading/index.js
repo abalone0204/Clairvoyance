@@ -6,11 +6,11 @@ export default class Loading extends React.Component {
         return (
             <div styleName="circ">
               <div styleName="load">{this.props.text}</div>
-              <div styleName="hands"></div>
-              <div styleName="body"></div>
+              <div styleName="body">
+              </div>
               <div styleName="head">
-                <div styleName="left-eye"></div>
-                <div styleName="right-eye"></div>
+                <div styleName="left-eye"/>
+                <div styleName="right-eye"/>
               </div>
             </div>
         )
