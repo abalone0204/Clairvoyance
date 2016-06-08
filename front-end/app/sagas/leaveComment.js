@@ -12,10 +12,6 @@ import checkAccessToken from '../API/checkAccessToken.js'
 import createComment from '../API/createComment.js'
 
 import {
-
-} from '../actions/fetchComments.js'
-
-import {
     REQUEST_LEAVE_COMMENT,
     FAIL_TO_LEAVE_COMMENT,
     SUCCESS_LEAVE_COMMENT
