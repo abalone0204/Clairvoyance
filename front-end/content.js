@@ -1,26 +1,26 @@
-import providers from './app/providers'
+import getProvider, {
+    getProviderName,
+    getJobQuery
+} from './app/providers'
 import renderApp from './app'
 
-console.log('load content script');
-
-const getProviderName = () => {
-    const matcher = location.host.match(/([^w\.]+)\.com/)
-    if (matcher) {
-        return matcher[1]
-    }
-}
 
 const providerName = getProviderName()
 console.log('providerName:', providerName);
-
-const jobTitle = providers[providerName].getJobTitile()
-const companyName = providers[providerName].getCompanyName()
+const provider = getProvider()
+console.log('provider:', provider);
+const jobObject = getJobQuery(provider)
+console.log('jobObject:',jobObject);
+const {job_name,company_name} = jobObject
 
 const node = document.createElement('div')
-const nodeId = `${jobTitle}Cla`
+const nodeId = `${job_name}Cla`
 
-console.log(jobTitle,companyName);
+console.log(job_name, company_name);
 node.id = nodeId
 document.body.appendChild(node)
 
-renderApp(nodeId)
+renderApp(nodeId, {
+    job_name,
+    company_name
+})
