@@ -103,3 +103,8 @@
 ## Firfox Plugin
 
 ## Web 
+
+
+## Trouble
+
+- fetch 不能在 header 裡面用中文

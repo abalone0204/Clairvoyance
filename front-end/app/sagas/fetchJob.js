@@ -13,6 +13,14 @@ import {
     SUCCESS_FETCH_JOB
 } from '../actions/fetchJob.js'
 
+import {
+    REQUEST_CREATE_JOB
+} from '../actions/createJob.js'
+
+import {
+    REQUEST_FETCH_COMMENTS
+} from '../actions/fetchComments.js'
+
 import fetchJob from '../API/fetchJob.js'
 
 export function* watchRequestFetchJob() {
@@ -21,11 +29,10 @@ export function* watchRequestFetchJob() {
 
 export function* fetchJobFlow(action) {
     try {
+        
         const job = yield call(fetchJob, action.query)
-        yield put({
-            type: SUCCESS_FETCH_JOB,
-            job
-        })
+        yield call(jobHandler, job, action)
+
     } catch (error) {
         yield put({
             type: FAIL_TO_FETCH_JOB,
@@ -33,3 +40,18 @@ export function* fetchJobFlow(action) {
         })
     }
 }
+
+export function* jobHandler(job, action) {
+    if (job === null) {
+        yield put({
+            type: REQUEST_CREATE_JOB,
+            params: action.query
+        })
+    } else {
+        yield put({
+            type: SUCCESS_FETCH_JOB,
+            job
+        })
+    }
+}
+

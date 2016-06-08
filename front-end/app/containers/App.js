@@ -1,3 +1,8 @@
+import getProvider, {
+    getProviderName,
+    getJobQuery
+} from '../providers'
+
 import {
     connect
 } from 'react-redux'
@@ -84,6 +89,7 @@ class App extends React.Component {
         const {
             dispatch
         } = this.props
+
         chrome.storage.sync.get('access_token', (item) => {
             console.log('item ==>', item);
             if (!!item['access_token']) {
@@ -92,6 +98,12 @@ class App extends React.Component {
                 console.log('access token not found');
             }
         })
+
+        const provider = getProvider()
+        const query = getJobQuery(provider)
+        dispatch(requestFetchJob(query))
+                
+
     }
 
     render() {
@@ -104,7 +116,7 @@ class App extends React.Component {
         const {
             access_token
         } = user
-        console.log('job==>',job);
+        console.log('job==>', job);
         return (
             <div>
                 test app container
