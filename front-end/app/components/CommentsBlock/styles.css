@@ -1,0 +1,36 @@
+@import url(http://fonts.googleapis.com/css?family=Julius+Sans+One);
+.comments-block {
+    
+}
+
+.container {
+    background: transparent;
+    position: relative;
+    padding: 25px;
+    padding-top: 0;
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+.title {
+    display: table;
+    white-space: nowrap;
+    &:before, &:after {
+      border-top: 3px solid #111;
+      content: '';
+      display: table-cell;
+      position: relative;
+      top: 0.5em;
+      width: 45%;
+    }
+    &:before { right: 1.5%; }
+    &:after { left: 1.5%; }
+}
+
+.empty-state {
+    position: absolute;
+    left: 50%;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    transform: translateX(-50%);
+    color: #999;
+}
