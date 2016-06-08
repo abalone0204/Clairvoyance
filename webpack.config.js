@@ -16,6 +16,14 @@ module.exports = {
         path: path.resolve(__dirname, "dist"),
         filename: '[name]-bundle.js'
     },
+    resolve: {
+        root: path.resolve(__dirname),
+        alias: {
+            app: 'front-end/app',
+            components: 'front-end/app/components',
+            actions: 'front-end/app/actions',
+        }
+    },
     module: {
         loaders: [{
             test: /\.js[x]?$/,
