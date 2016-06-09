@@ -31,7 +31,7 @@ class UserBlock extends React.Component {
                           <div styleName="login-body">
                               <h3>登入後留言</h3>
                               <LoginBtn sendLoginRequest={sendLoginRequest}/>
-                              <h3 styleName='toggle-display' onClick={handleClick}>我暫時還不想登入</h3>
+                              <h3 styleName='toggle-display-word' onClick={handleClick}>我暫時還不想登入</h3>
                           </div>
                         </div> 
                     </div>

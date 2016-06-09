@@ -1,25 +1,28 @@
 $main-color: #101740;
 $shin-color: #00ffff;
+
 :global {
-    body{
-        margin: 0;
-    }
+  body {
+    margin: 0;
+  }
+
 }
+
 .user-block-base {
-    position: fixed;
-    top: 20px;
-    right: 30px;
-    z-index: 1000;
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  z-index: 1000;
 }
 
 .user-block {
-    composes: user-block-base;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  composes: user-block-base;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
 .user-block:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .login {
@@ -49,41 +52,48 @@ $shin-color: #00ffff;
 }
 
 .login-body {
-    padding: 15px;
-    background: white;   
-    
+  padding: 15px;
+  background: white;
 }
 
 .show-user-block {
-    composes: user-block-base;
-    width: 250px;
-    margin: 16px auto;
-    font-size: 30px;
-    text-align: center;
+  composes: user-block-base;
+  width: 250px;
+  margin: 16px auto;
+  font-size: 30px;
+  text-align: center;
 }
 
-.show-user-block i{
-    transition: all ease-in-out 0.3s;
-    border-radius: 100%;
+.show-user-block i {
+  transition: all ease-in-out 0.3s;
+  border-radius: 100%;
 }
 
-.show-user-block i:hover{
-    color: $shin-color;
-    box-shadow: 0px 0px 30px 0px $shin-color;
+.show-user-block i:hover {
+  color: $shin-color;
+  box-shadow: 0px 0px 30px 0px $shin-color;
 }
 
 .toggle-display {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.toggle-display-word {
+  composes: toggle-display;
+}
+
+.toggle-display-word:hover {
+  text-decoration: underline;
 }
 
 .logining {
-    position: fixed;
-    top: 0;
-    background: rgba(0,0,0, 0.7);
-    z-index: 20000;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+  position: fixed;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 20000;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .logined-flash {
@@ -92,7 +102,7 @@ $shin-color: #00ffff;
   width: 200px;
   padding: 15px;
   border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   animation: flash 2s ease-in-out normal;
 }
 
@@ -100,8 +110,10 @@ $shin-color: #00ffff;
   from {
     opacity: 1;
   }
+
   to {
     top: -20px;
     opacity: 0;
   }
+
 }
