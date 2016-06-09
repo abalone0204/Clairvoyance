@@ -82,7 +82,8 @@ module.exports = {
     postcss: [
         postcssNested,
         require('postcss-cssnext'),
-        require('postcss-simple-vars')
+        require('postcss-simple-vars'),
+        require('postcss-nested')
     ],
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
