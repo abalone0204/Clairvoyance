@@ -37,16 +37,16 @@ function fetchAccessToken(code, originTabIndex, sendResponse, tabId) {
             code
         })
     }
-
+    chrome.tabs.highlight({
+                'tabs': originTabIndex
+            })
     fetch(authUri, options)
         .then(response => response.json())
         .then(data => {
             console.log('get data:', data);
             sendResponse(data)
         }).then(() => {
-            chrome.tabs.highlight({
-                'tabs': originTabIndex
-            }, () => chrome.tabs.remove(tabId))
+            chrome.tabs.remove(tabId)    
         })
 
 
