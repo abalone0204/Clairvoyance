@@ -17,6 +17,7 @@ export default class CommentsBlock extends React.Component {
             sendCreateCommentRequest,
             changeUserIdentity
         } = this.props
+        console.log('comments==>',comments);
         return (
             <div styleName='comments-block'>
                 <div styleName='container'>

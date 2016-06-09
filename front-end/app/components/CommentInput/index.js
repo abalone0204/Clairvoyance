@@ -21,21 +21,24 @@ class CommentInput extends React.Component {
             sendCreateCommentRequest
         } = this.props
         const {showConfirm} =this.state
-
+        
         const handleSubmit = (type) => (e) => {
             this.setState({showConfirm: true, commentType: type})
         }
 
+        const type = this.state.commentType
+        console.log('user.anonymous:', user.anonymous);
         const confirmHandler = () => {
+            const content = this.refs.commentInput.value
             this.refs.commentInput.value = ''
             this.setState({showConfirm: false}, ()=> {
-                sendLoginRequest({
-                    job_id: job.id,
+                sendCreateCommentRequest({
+                    job_id: job.job.id,
                     source: '13123',
-                    content: this.refs.commentInput.value,
+                    content,
                     anonymous: user.anonymous,
                     access_token: user.access_token,
-                    type: this.state.type
+                    type
                 })    
             })
         }

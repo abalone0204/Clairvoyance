@@ -4,6 +4,9 @@ import getProvider, {
 } from './app/providers'
 import renderApp from './app'
 
+const cdnNode = document.createElement('script')
+cdnNode.src = "https://use.fontawesome.com/aa07066302.js"
+document.head.appendChild(cdnNode)
 
 const providerName = getProviderName()
 const provider = getProvider()

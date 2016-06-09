@@ -1,6 +1,6 @@
 import CSSModules from 'react-css-modules'
-
 import styles from './styles.css'
+import FBAvatar from 'components/FBAvatar'
 
 const renderTime = (timeStamp) => {
     const date = new Date(timeStamp)
@@ -15,33 +15,10 @@ function renderAvatar(url) {
 
 class Comment extends React.Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {}
-    }
-
-    componentDidMount() {
-        const {
-            fb_id
-        } = this.props.comment
-        if (fb_id) {
-            fetch(`https://graph.facebook.com/v2.6/${fb_id}/picture?redirect=false&type=square`)
-                .then(response => response.json())
-                .then((json) => {
-                    this.setState({
-                        fb_url: json.data.url
-                    })
-                })
-        }
-    }
-
     render() {
         const {
             comment
         } = this.props
-        const {
-            fb_url
-        } = this.state
         const renderCommentType = (type) => (
             <div styleName={type}>
                     {   
@@ -62,7 +39,7 @@ class Comment extends React.Component {
                         </div>
                         <div styleName='anonymous-body'/>
                     </div> :
-                    renderAvatar(fb_url)
+                    <FBAvatar fb_id={comment.fb_id}/>
                     }
                 </div> 
                 <div styleName ='content-box'>

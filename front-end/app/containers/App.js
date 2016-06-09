@@ -17,13 +17,15 @@ import {
 import {
     requestLeaveComment
 } from '../actions/leaveComment.js'
-
+import {
+    changeUserIdentity
+}from '../actions/changeUserIdentity.js'
 
 import CommentsBlock from 'components/CommentsBlock'
 import UserBlock from 'components/UserBlock'
 
-const sendLoginRequest = (dispatch) => (e) => {
-    e.preventDefault()
+const bindSendLoginRequest = (dispatch) => (e) => {
+    console.log('what is e :' ,e);
     chrome.runtime.sendMessage({
         message: "login"
     }, (response) => {
@@ -35,20 +37,6 @@ const sendLoginRequest = (dispatch) => (e) => {
     })
 }
 
-
-const leaveCommentHandler = (type, access_token, dispatch) => (e) => {
-    e.preventDefault()
-    const params = {
-        type,
-        access_token,
-        job_id: '123123123',
-        source: '404',
-        content: 'FROM extension',
-        anonymous: true
-    }
-    console.log(params);
-    dispatch(requestLeaveComment(params))
-}
 
 class App extends React.Component {
 
@@ -69,8 +57,6 @@ class App extends React.Component {
         const provider = getProvider()
         const query = getJobQuery(provider)
         dispatch(requestFetchJob(query))
-                
-
     }
 
     render() {
@@ -83,12 +69,26 @@ class App extends React.Component {
         const {
             access_token
         } = user
-        console.log('comemnts==>',comments);
-        console.log('user===>', user);
+        const sendCreateCommentRequest = (params) => {
+            dispatch(requestLeaveComment(params))
+        }
+        const boundChangeUserIdentity = () => {
+            dispatch(changeUserIdentity())
+        }
+        const sendLoginRequest = bindSendLoginRequest(dispatch)
+        
         return (
             <div>
-                <UserBlock user={user} sendLoginRequest={sendLoginRequest(dispatch)}/>
-                <CommentsBlock comments={comments}/>
+                <UserBlock user={user} sendLoginRequest={sendLoginRequest}/>
+                <CommentsBlock {...{        
+                    job,
+                    user,
+                    comments,
+                    sendLoginRequest,
+                    sendCreateCommentRequest,
+                    changeUserIdentity: boundChangeUserIdentity
+                }}
+                />
             </div>
         )
     }

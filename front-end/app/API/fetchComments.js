@@ -4,6 +4,7 @@ import {
 } from './helper.js'
 
 import config from '../../../config.json'
+import _ from 'underscore'
 
 export default function fetchComments(job_id) {
     const {backend} = config
@@ -17,4 +18,7 @@ export default function fetchComments(job_id) {
     return fetch(`${backend}/comments`, options)
         .then(checkStatus)
         .then(parseJSON)
+        .then(comments => {
+            return _.sortBy(comments, (comment) => comment.timestamp)
+        })
 }

@@ -1,4 +1,3 @@
-import 'babel-polyfill'
 import {
     takeEvery
 } from 'redux-saga'
