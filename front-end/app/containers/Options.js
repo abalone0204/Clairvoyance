@@ -40,7 +40,7 @@ const fetchJobHandler = (dispatch) => (e) => {
     dispatch(requestFetchJob(query))
 }
 
-const leaveCommentHandler = (type, access_token, dispatch) => (e) => {
+const leaveCommentHandler = (type, access_token, anonymous,dispatch) => (e) => {
     e.preventDefault()
     const params = {
         type,
@@ -48,7 +48,7 @@ const leaveCommentHandler = (type, access_token, dispatch) => (e) => {
         job_id: '123123123',
         source: '404',
         content: 'FROM extension',
-        anonymous: true
+        anonymous
     }
     console.log(params);
     dispatch(requestLeaveComment(params))
@@ -129,9 +129,13 @@ class Options extends React.Component {
                 </div>
                 <div>
                     <input ref='comment' type="text"/>
-                    <button onClick={leaveCommentHandler('good', access_token,dispatch)}>推</button>
-                    <button onClick={leaveCommentHandler('bad', access_token,dispatch)}>噓</button>
-                    <button onClick={leaveCommentHandler('normal', access_token,dispatch)}>-></button>
+                    <button onClick={leaveCommentHandler('good', access_token, false,dispatch)}>推</button>
+                    <button onClick={leaveCommentHandler('bad', access_token,false,dispatch)}>噓</button>
+                    <button onClick={leaveCommentHandler('normal', access_token,false,dispatch)}>-></button>
+                    <button onClick={leaveCommentHandler('good', access_token,true,dispatch)}>匿名推</button>
+                    <button onClick={leaveCommentHandler('bad', access_token,true,dispatch)}>匿名噓</button>
+                    <button onClick={leaveCommentHandler('normal', access_token,true,dispatch)}>匿名-></button>
+
                 </div>
             </Container>
         )

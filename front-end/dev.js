@@ -1,23 +1,30 @@
+import 'babel-polyfill'
 import Loading from './app/components/Loading'
 import fetchJob from './app/API/fetchJob.js'
 import createJob from './app/API/createJob.js'
-const handler = (e) => {
-    const company_name = '中文'
-    const job_name = 'test'
-    const e04_job_no = 'e0444'
+import fetchComments from './app/API/fetchComments.js'
+import CommentsBlock from './app/components/CommentsBlock'
+require('font-awesome/css/font-awesome.css');
 
-    fetchJob({
-        company_name,
-        job_name,
-        e04_job_no
-    }).then(result => {
-        console.log('result=>',result);
-    })
+const mockStyles = {
+    height: '10vh'
 }
-const App = () => (
+
+const App = ({comments}) => (
     <div>
-        <Loading/>
-        <button onClick={handler}>fetch job</button>
+        <div style={mockStyles}>nothing but mock</div>
+        <CommentsBlock comments={comments}/>
     </div>
 )
-ReactDOM.render(<App/>, document.querySelector('#container'))
+
+fetchComments('123123123').then(data => {
+    const comments = {
+        data
+    }
+    console.log(data[0]);
+    ReactDOM.render(<App comments={comments}/>, document.querySelector('#container'))    
+})
+
+if (module.hot) {
+  module.hot.accept();
+}

@@ -1,19 +1,21 @@
 @import url(http://fonts.googleapis.com/css?family=Julius+Sans+One);
+
+
 .comments-block {
-    
+
 }
 
 .container {
     background: transparent;
     position: relative;
-    padding: 25px;
-    padding-top: 0;
     font-family: 'Julius Sans One', sans-serif;
+    width: 100vw;
 }
 
 .title {
     display: table;
     white-space: nowrap;
+    width: 100vw;
     &:before, &:after {
       border-top: 3px solid #111;
       content: '';
