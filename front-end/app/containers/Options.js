@@ -18,6 +18,8 @@ import {
     requestCreateJob
 } from '../actions/createJob.js'
 
+import LoginBtn from 'components/FacebookLoginBtn'
+
 let value = 0
 const createJobHandler = (dispatch) => (e) => {
     e.preventDefault()
@@ -105,13 +107,14 @@ class Options extends React.Component {
         const {
             access_token
         } = user
-        console.log('job==>',job);
+        
         return (
             <Container>
                 <h1>Clairvoyance</h1>
                 <Loading/>
                 <Loading text={'Building'}/>
                 {user.status === 'complete' ? <div>{user.info.user_name}</div>: null}
+                <LoginBtn sendLoginRequest={clickHandler(dispatch)}/>
                 <div>
                     <a href="" onClick={createJobHandler(dispatch)}>create Job</a>
                 </div>

@@ -10,11 +10,13 @@
     position: relative;
     font-family: 'Julius Sans One', sans-serif;
     width: 100vw;
+    min-height: 400px;
 }
 
 .title {
     display: table;
     white-space: nowrap;
+    text-align: center;
     width: 100vw;
     &:before, &:after {
       border-top: 3px solid #111;

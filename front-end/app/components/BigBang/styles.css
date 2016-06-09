@@ -1,0 +1,52 @@
+$shadow: #00ffff;
+$light-dot-blue: #00ffff;
+$dark-dot-blue: #00ffff;
+
+.container {
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) scale(1);
+  transform-origin: 0 0;
+}
+
+.dot {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  background-color: #97f4ff;
+  box-shadow: 0 0 .2em .13em $light-dot-blue, 0 0 0 0 $shadow, 0 0 0 0 $dark-dot-blue;
+  opacity: 0;
+  animation: dot-anim linear 1.834s infinite;
+  border-radius: 50%;
+}
+
+@keyframes dot-anim {
+  45% {
+    opacity: 1;
+  }
+
+  46% {
+    box-shadow: 0 0 .2em .13em $light-dot-blue, 0 0 0 0 $shadow, 0 0 5px 10px $dark-dot-blue;
+  }
+
+  50% {
+    box-shadow: 0 0 .2em .13em $light-dot-blue, 0 0 0 101px $shadow, 0 0 0 173px $dark-dot-blue;
+  }
+
+  52% {
+    box-shadow: 0 0 .2em .13em $light-dot-blue, 0 0 0 400px $shadow, 0 0 0 500px $dark-dot-blue;
+  }
+
+  55% {
+    opacity: 1;
+    box-shadow: 0 0 .2em .13em $light-dot-blue, 0 0 0 500px $shadow, 0 0 0 600px $dark-dot-blue;
+  }
+
+  81% {
+    opacity: 0;
+    box-shadow: 0 0 .2em .13em $light-dot-blue, 0 0 0 700px $shadow, 0 0 0 800px $dark-dot-blue;
+  }
+
+}

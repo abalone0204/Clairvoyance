@@ -121,7 +121,7 @@ $staring-eye-color: #00ffff;
   font-family: 'Julius Sans One', sans-serif;
   font-size: 30px;
   font-weight: 400;
-  color: $main-color;
+  color: white;
   left: 10%;
   top: 5%;
   animation: breath 0.75s infinite alternate ease-out;
