@@ -9,7 +9,11 @@ module.exports = {
         popup: './front-end/popup.js',
         content: './front-end/content.js',
         options: './front-end/options.js',
-        dev: './front-end/dev.js'
+        dev: [
+            'webpack/hot/dev-server',
+            'webpack-dev-server/client?http://localhost:8080',
+            './front-end/dev.js'
+        ]
             // app: './front-end/app/index.js'
     },
     output: {
@@ -60,6 +64,7 @@ module.exports = {
         require('postcss-simple-vars')
     ],
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
         new webpack.ProvidePlugin({
             React: "react",
             ReactDOM: "react-dom",
