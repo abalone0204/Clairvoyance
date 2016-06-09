@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node devServer.js",
     "precompile": "npm run clean && webpack --config webpack.config.prod.js -p",
-    "precompile:chrome": "npm run precompile && cp dist/{popup-bundle.js,content-bundle.js,eventPage-bundle.js,options-bundle.js} chromeExtension/dist",
+    "dev:chrome": "npm run clean && webpack && npm run migrate:chrome",
+    "precompile:chrome": "npm run precompile && npm run migrate:chrome",
+    "migrate:chrome": "cp dist/* chromeExtension/dist",
     "commit": "git-cz",
     "clean": "rm -f dist/*.js dist/*.js.map chromeExtension/dist/*",
     "test": "cross-env NODE_ENV=test NODE_PATH=front-end/app mocha tests --recursive --compilers js:babel-register",
