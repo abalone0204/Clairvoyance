@@ -5,6 +5,7 @@ var compiler = webpack(config);
 
 var server = new WebpackDevServer(compiler, {
     contentBase: "./dist",
+    hot: true,
     stats: {
         colors: true,
     }
