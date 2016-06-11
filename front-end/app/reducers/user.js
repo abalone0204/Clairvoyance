@@ -1,7 +1,8 @@
 import {
     REQUEST_LOGIN,
     FAIL_TO_LOGIN,
-    SUCCESS_LOGIN
+    SUCCESS_LOGIN,
+    LOGOUT
 } from '../actions/login.js'
 
 import {
@@ -33,6 +34,10 @@ export default function user(state = {
                 status: 'failed',
                 error: action.error
             })
+        case LOGOUT:
+            return {
+                status: 'logout'
+            }
         default:
             return state
     }

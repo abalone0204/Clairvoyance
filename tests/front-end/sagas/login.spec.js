@@ -10,12 +10,14 @@ import {
 
 import {
     call,
-    put
+    put,
+    take
 } from 'redux-saga/effects'
 import {
     watchRequestLogin,
     loginFlow,
-    userHandler
+    userHandler,
+    cleanAccessToken
 } from 'sagas/login.js'
 
 import checkAccessToken from 'API/checkAccessToken.js'
@@ -25,7 +27,8 @@ import createUser from 'API/createUser.js'
 import {
     REQUEST_LOGIN,
     FAIL_TO_LOGIN,
-    SUCCESS_LOGIN
+    SUCCESS_LOGIN,
+    LOGOUT
 } from 'actions/login.js'
 
 describe('Sagas/ Login', () => {
@@ -133,6 +136,18 @@ describe('Sagas/ Login', () => {
                         })
                         const actual = iterator.next(newUser).value
                         assert.deepEqual(expected, actual)
+                    })
+
+                    it('should take logout effect',  () => {
+                      const expected = take(LOGOUT)
+                        const actual = iterator.next().value
+                        assert.deepEqual(expected, actual)  
+                    })
+
+                    it('should clean access token',  () => {
+                        const expected = call(cleanAccessToken)
+                        const actual = iterator.next().value
+                        assert.deepEqual(expected, actual)  
                     })
 
                     it('should handle error', () => {

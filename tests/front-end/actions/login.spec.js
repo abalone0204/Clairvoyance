@@ -6,9 +6,11 @@ import {
     REQUEST_LOGIN,
     FAIL_TO_LOGIN,
     SUCCESS_LOGIN,
+    LOGOUT,
     requestLogin,
     failToLogin,
-    successLogin
+    successLogin,
+    logout
 } from 'actions/login.js'
 
 
@@ -48,6 +50,17 @@ describe('Actions/ Login', () => {
         }
 
         const actual = successLogin(user)
+        assert.deepEqual(expected, actual)
+
+    })
+
+    it('should handle logout', () => {
+        
+        const expected = {
+            type: LOGOUT
+        }
+        
+        const actual = logout()
         assert.deepEqual(expected, actual)
 
     })

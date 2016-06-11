@@ -35,7 +35,6 @@ import getProvider, {
 
 
 const bindSendLoginRequest = (dispatch) => (e) => {
-    console.log('what is e :' ,e);
     chrome.runtime.sendMessage({
         message: "login"
     }, (response) => {

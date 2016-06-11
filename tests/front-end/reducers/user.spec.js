@@ -5,7 +5,8 @@ import user from 'reducers/user.js'
 import {
     REQUEST_LOGIN,
     FAIL_TO_LOGIN,
-    SUCCESS_LOGIN
+    SUCCESS_LOGIN,
+    LOGOUT
 } from 'actions/login.js'
 
 import {
@@ -84,6 +85,16 @@ describe('Reducers/ User', () => {
         const actual = user(getInitState(), {
             type: CHANGE_USER_IDENTITY
         })
+        assert.deepEqual(expected, actual)
+    })
+
+    it('should handle logout', () => {
+        const expected  = {
+            status: 'logout'
+        }
+        const actual = user(getInitState(), {
+            type: LOGOUT
+        })  
         assert.deepEqual(expected, actual)
     })
 
