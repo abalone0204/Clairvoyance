@@ -4,6 +4,7 @@ import {
 
 import {
     requestLogin,
+    requestToOAuth,
     logout
 } from '../actions/login.js'
 
@@ -13,6 +14,7 @@ import LoadingBlock from 'components/LoadingBlock'
 import FacebookLoginBtn from 'components/FacebookLoginBtn'
 
 const bindSendLoginRequest = (dispatch) => (e) => {
+    dispatch(requestToOAuth())
     chrome.runtime.sendMessage({
         message: "login"
     }, (response) => {

@@ -4,7 +4,8 @@ import {
 
 import oauthCallback from '../../chrome/oauthCallback.js'
 import {
-    requestLogin
+    requestLogin,
+    requestToOAuth
 } from '../actions/login.js'
 import {
     requestFetchJob
@@ -35,6 +36,7 @@ import getProvider, {
 
 
 const bindSendLoginRequest = (dispatch) => (e) => {
+    dispatch(requestToOAuth())
     chrome.runtime.sendMessage({
         message: "login"
     }, (response) => {

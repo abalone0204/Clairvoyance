@@ -1,4 +1,5 @@
 import {
+    REQUEST_TO_OAUTH,
     REQUEST_LOGIN,
     FAIL_TO_LOGIN,
     SUCCESS_LOGIN,
@@ -14,6 +15,10 @@ export default function user(state = {
     anonymous: false
 }, action) {
     switch (action.type) {
+        case REQUEST_TO_OAUTH:
+            return Object.assign({}, state, {
+                status: 'loading'
+            })
         case REQUEST_LOGIN:
             return Object.assign({}, state, {
                 status: 'loading',

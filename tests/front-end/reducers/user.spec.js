@@ -3,6 +3,7 @@ import {
 } from 'chai'
 import user from 'reducers/user.js'
 import {
+    REQUEST_TO_OAUTH,
     REQUEST_LOGIN,
     FAIL_TO_LOGIN,
     SUCCESS_LOGIN,
@@ -30,6 +31,14 @@ describe('Reducers/ User', () => {
         assert.deepEqual(expected, actual)
     })
 
+    it('should handle request to oauth',  () =>{
+        const expected = {
+            status: 'loading',
+            anonymous: false
+        }
+        const actual = user(getInitState(), {type: REQUEST_TO_OAUTH})
+        assert.deepEqual(expected, actual)
+    });
     it('should handle request login', () => {
         const access_token = 'mock_token'
         const expected = {
