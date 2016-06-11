@@ -32,8 +32,9 @@ class FloatingBlock extends React.Component {
             )    
         } else {
             return (
-                <div styleName='show-floating-block'>
-                    <i styleName='toggle-display' onClick={handleClick} className="fa fa-eye" aria-hidden="true"/>
+                <div styleName='show-floating-block' onClick={handleClick}>
+                    <i styleName='toggle-display' className="fa fa-eye" aria-hidden="true"/>
+                    <h4>Clairvoyance</h4>
                 </div>
                 )
         }

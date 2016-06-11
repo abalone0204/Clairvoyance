@@ -17,14 +17,6 @@ class UserBlock extends React.Component {
                     </div>
                 )    
         }
-
-        if (status === 'loading') {
-            return (
-                <div styleName='logining'>
-                    <Loading/>
-                </div>
-                )
-        }
         
     }
 }
