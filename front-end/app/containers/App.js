@@ -1,8 +1,3 @@
-import getProvider, {
-    getProviderName,
-    getJobQuery
-} from '../providers'
-
 import {
     connect
 } from 'react-redux'
@@ -21,10 +16,21 @@ import {
     changeUserIdentity
 }from '../actions/changeUserIdentity.js'
 
+// Import dumb components
 import UserBlock from 'components/UserBlock'
 import Header from 'components/Header'
 import CommentsList from 'components/CommentsList'
 import CommentInput from 'components/CommentInput'
+import FloatingBlock from 'components/FloatingBlock'
+import FlashBlock from 'components/FlashBlock'
+import LoadingBlock from 'components/LoadingBlock'
+import StatusBlock from 'components/StatusBlock'
+
+// Import source provider, 104, 1111, or yes123
+import getProvider, {
+    getProviderName,
+    getJobQuery
+} from '../providers'
 
 
 
@@ -80,23 +86,36 @@ class App extends React.Component {
             dispatch(changeUserIdentity())
         }
         const sendLoginRequest = bindSendLoginRequest(dispatch)
-        
-        return (
-            <div>
-                <UserBlock user={user} sendLoginRequest={sendLoginRequest}/>
-                <Header>Comments</Header>
-                <CommentsList comments={comments}/>
-                <CommentInput {...{
-                    comments, 
-                    user, 
-                    job,
-                    sendLoginRequest, 
-                    sendCreateCommentRequest, 
-                    changeUserIdentity: boundChangeUserIdentity, 
-                    sendCreateCommentRequest
-                }}/>
-            </div>
-        )
+        const isLoading = user.status === 'loading'
+
+        if (isLoading) {
+            return (
+                <div>
+                    <LoadingBlock {...{user}}/>
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                    <FlashBlock {...{user}}/>
+                    
+                    <FloatingBlock>
+                        <StatusBlock {...{comments}}/>
+                    </FloatingBlock>
+                    <Header>Comments</Header>
+                    <CommentsList comments={comments}/>
+                    <CommentInput {...{
+                        comments, 
+                        user, 
+                        job,
+                        sendLoginRequest, 
+                        sendCreateCommentRequest, 
+                        changeUserIdentity: boundChangeUserIdentity, 
+                        sendCreateCommentRequest
+                    }}/>
+                </div>
+            )
+        }
     }
 }
 
