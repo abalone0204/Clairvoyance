@@ -90,24 +90,24 @@ class Options extends React.Component {
                             <div>
                                 <a href="#" onClick={()=> dispatch(logout())}>登出</a>
                             </div> 
-                    
+                            <h3>設定</h3>
+                            <div> 
+                                <div>
+                                    <label htmlFor="identity">匿名留言</label>
+                                    <input
+                                        type="checkbox"
+                                        checked={user.anonymous}
+                                        ref="complete"
+                                        onChange={handleChange}
+                                      />
+                             
+                                </div>
+                            </div>
                         </div>
                         : 
                         <FacebookLoginBtn sendLoginRequest={bindSendLoginRequest(dispatch)}/>
                     }     
-                    <div> 
-                        <div>
-                            <label htmlFor="identity">匿名留言</label>
-                            
-                                <input
-                                    type="checkbox"
-                                    checked={user.anonymous}
-                                    ref="complete"
-                                    onChange={handleChange}
-                                  />
-                             
-                        </div>
-                    </div>
+                    <hr/>
                     <About/>
                 </Container>
             )

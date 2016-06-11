@@ -18,7 +18,7 @@ class About extends React.Component {
                     <h2>Why build clairvoyance?</h2>
                     <div>
                         我認為留言把資訊揭露是一個求職平台「本來就該有」的功能， <br/>
-                        不過現在的人力銀行獲利模式是像企業端收費， <br/>
+                        不過現在的人力銀行獲利模式是向企業端收費， <br/>
                         而有些企業並不喜歡這樣的功能。 <br/>
                         這個 project 希望能弭平一些勞資雙方的資訊不對稱 <br/>
                         後續會在寫一篇文章詳細介紹 ：Ｄ
