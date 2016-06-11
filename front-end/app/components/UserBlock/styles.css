@@ -5,7 +5,6 @@ $shin-color: #00ffff;
   body {
     margin: 0;
   }
-
 }
 
 .user-block-base {
@@ -23,67 +22,6 @@ $shin-color: #00ffff;
 
 .user-block:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-}
-
-.login {
-  width: 250px;
-  margin: 16px auto;
-  font-size: 16px;
-}
-
-.login-triangle {
-  width: 0;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: -40px;
-  border: 12px solid transparent;
-  border-bottom-color: $main-color;
-}
-
-.login-header {
-  background: $main-color;
-  padding: 20px;
-  font-size: 1.4em;
-  font-weight: normal;
-  text-align: center;
-  text-transform: uppercase;
-  color: #fff;
-  margin: 0;
-}
-
-.login-body {
-  padding: 15px;
-  background: white;
-}
-
-.show-user-block {
-  composes: user-block-base;
-  width: 250px;
-  margin: 16px auto;
-  font-size: 30px;
-  text-align: center;
-}
-
-.show-user-block i {
-  transition: all ease-in-out 0.3s;
-  border-radius: 100%;
-}
-
-.show-user-block i:hover {
-  color: $shin-color;
-  box-shadow: 0px 0px 30px 0px $shin-color;
-}
-
-.toggle-display {
-  cursor: pointer;
-}
-
-.toggle-display-word {
-  composes: toggle-display;
-}
-
-.toggle-display-word:hover {
-  text-decoration: underline;
 }
 
 .logining {
