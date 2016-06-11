@@ -1,0 +1,16 @@
+.title {
+    display: table;
+    white-space: nowrap;
+    text-align: center;
+    width: 100vw;
+    &:before, &:after {
+      border-top: 3px solid #111;
+      content: '';
+      display: table-cell;
+      position: relative;
+      top: 0.5em;
+      width: 45%;
+    }
+    &:before { right: 1.5%; }
+    &:after { left: 1.5%; }
+}

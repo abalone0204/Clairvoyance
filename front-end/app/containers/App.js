@@ -21,8 +21,12 @@ import {
     changeUserIdentity
 }from '../actions/changeUserIdentity.js'
 
-import CommentsBlock from 'components/CommentsBlock'
 import UserBlock from 'components/UserBlock'
+import Header from 'components/Header'
+import CommentsList from 'components/CommentsList'
+import CommentInput from 'components/CommentInput'
+
+
 
 const bindSendLoginRequest = (dispatch) => (e) => {
     console.log('what is e :' ,e);
@@ -80,15 +84,17 @@ class App extends React.Component {
         return (
             <div>
                 <UserBlock user={user} sendLoginRequest={sendLoginRequest}/>
-                <CommentsBlock {...{        
+                <Header>Comments</Header>
+                <CommentsList comments={comments}/>
+                <CommentInput {...{
+                    comments, 
+                    user, 
                     job,
-                    user,
-                    comments,
-                    sendLoginRequest,
-                    sendCreateCommentRequest,
-                    changeUserIdentity: boundChangeUserIdentity
-                }}
-                />
+                    sendLoginRequest, 
+                    sendCreateCommentRequest, 
+                    changeUserIdentity: boundChangeUserIdentity, 
+                    sendCreateCommentRequest
+                }}/>
             </div>
         )
     }

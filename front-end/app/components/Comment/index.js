@@ -14,7 +14,12 @@ function renderAvatar(url) {
 }
 
 class Comment extends React.Component {
-
+    componentWillMount() {
+        console.log('Comment: componentWillMount');
+    }
+    shouldComponentUpdate(prevProps){
+        return this.props.comment.id !== prevProps.comment.id
+    }
     render() {
         const {
             comment

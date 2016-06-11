@@ -10,7 +10,12 @@ class FBAvatar extends React.Component {
             fb_url: null
         }
     }
+    shouldComponentUpdate(nextProps, nextState) {
+        return (nextProps.fb_id !== this.props.fb_id) ||
+               (nextState.fb_url !== this.state.fb_url)
+    }
     componentWillMount() {
+        
         const {fb_id} = this.props
         fetch(`http://graph.facebook.com/v2.6/${fb_id}/picture?redirect=false&type=square`)
         .then(response => response.json())
@@ -20,6 +25,7 @@ class FBAvatar extends React.Component {
     }
     render() {
         const {fb_url} = this.state
+        
         return (
             <img styleName='avatar' src={fb_url}/>
             )

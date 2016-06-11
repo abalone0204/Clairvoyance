@@ -23,7 +23,9 @@ class CommentInput extends React.Component {
         const {showConfirm} =this.state
         
         const handleSubmit = (type) => (e) => {
-            this.setState({showConfirm: true, commentType: type})
+            if (!!this.refs.commentInput.value) {
+                this.setState({showConfirm: true, commentType: type})    
+            }
         }
 
         const type = this.state.commentType
@@ -84,17 +86,15 @@ class CommentInput extends React.Component {
                                 <div styleName='normal' onClick={handleSubmit('normal')}>
                                     <i className="fa fa-comment-o"/>
                                 </div>
-                                <div styleName='toggle-identity'>
+                                <div styleName='toggle-identity'  onClick={changeUserIdentity}>
+
                                     {
                                         user.anonymous ? 
-                                            <label styleName="checkbox" onClick={changeUserIdentity}>
-                                              <input type="checkbox" defaultChecked/> <span>匿名</span>
-                                            </label>
+                                              <input type="checkbox" defaultChecked/>
                                             :
-                                            <label styleName="checkbox" onClick={changeUserIdentity}>
-                                              <input type="checkbox"/> <span>匿名</span>
-                                            </label>
+                                              <input type="checkbox"/>
                                     }
+                                    <span>匿名</span>
                                 </div>
                             </div>
                                 
