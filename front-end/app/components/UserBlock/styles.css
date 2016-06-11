@@ -1,29 +1,3 @@
-$main-color: #101740;
-$shin-color: #00ffff;
-
-:global {
-  body {
-    margin: 0;
-  }
-}
-
-.user-block-base {
-  position: fixed;
-  top: 20px;
-  right: 30px;
-  z-index: 1000;
-}
-
-.user-block {
-  composes: user-block-base;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-}
-
-.user-block:hover {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-}
-
 .logining {
   position: fixed;
   top: 0;
@@ -34,24 +8,3 @@ $shin-color: #00ffff;
   overflow: hidden;
 }
 
-.logined-flash {
-  composes: user-block;
-  opacity: 0;
-  width: 200px;
-  padding: 15px;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  animation: flash 2s ease-in-out normal;
-}
-
-@keyframes flash {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    top: -20px;
-    opacity: 0;
-  }
-
-}
