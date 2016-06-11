@@ -3,24 +3,29 @@ import {
 } from 'chai'
 
 import {
+    REQUEST_TO_OAUTH,
     REQUEST_LOGIN,
     FAIL_TO_LOGIN,
     SUCCESS_LOGIN,
+    LOGOUT,
+    requestToOAuth,
     requestLogin,
     failToLogin,
-    successLogin
+    successLogin,
+    logout
 } from 'actions/login.js'
 
 
 describe('Actions/ Login', () => {
-
+    it('should handle request to oauth',  () => {
+        const expected = 1
+        const actual = REQUEST_TO_OAUTH  
+    })
     it('should create request login action', () => {
-        const access_token = "mock_token"
         const expected = {
-            type: REQUEST_LOGIN,
-            access_token
+            type: REQUEST_TO_OAUTH
         }
-        const actual = requestLogin(access_token)
+        const actual = requestToOAuth()
         assert.deepEqual(expected, actual)
     })
 
@@ -48,6 +53,17 @@ describe('Actions/ Login', () => {
         }
 
         const actual = successLogin(user)
+        assert.deepEqual(expected, actual)
+
+    })
+
+    it('should handle logout', () => {
+        
+        const expected = {
+            type: LOGOUT
+        }
+        
+        const actual = logout()
         assert.deepEqual(expected, actual)
 
     })

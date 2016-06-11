@@ -2,7 +2,6 @@ import 'babel-polyfill'
 import Root from './containers/Root'
 import store from './store.js'
 
-
 export default function main(containerId, {
     job_name,
     company_name

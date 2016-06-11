@@ -1,0 +1,38 @@
+.container {
+    display: flex
+}
+
+.stat-item {
+    flex: 1;
+    text-align: center;
+    margin-left: 5px
+}
+
+.stat-item:first-child {
+    margin-left: 0
+}
+
+.icon {
+    font-size: 24px
+}
+
+.icon--good {
+    composes: icon;
+    /*color: green*/
+}
+
+.icon--bad {
+    composes: icon;
+    /*color: red*/
+}
+
+.icon--normal {
+    composes: icon
+}
+
+.number {
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: #101740 solid 2px
+}

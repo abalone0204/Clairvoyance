@@ -7,13 +7,15 @@ import {
 
 import {
     put,
-    call
+    call,
+    take
 } from 'redux-saga/effects'
 
 import {
     REQUEST_LOGIN,
     FAIL_TO_LOGIN,
-    SUCCESS_LOGIN
+    SUCCESS_LOGIN,
+    LOGOUT
 } from '../actions/login.js'
 
 export function* watchRequestLogin() {
@@ -47,6 +49,14 @@ export function* loginFlow(action) {
     }
 }
 
+export function* cleanAccessToken() {
+    console.log('cleanAccessToken');
+    chrome.storage.sync.remove('access_token')
+    // yield call(chrome.storage.sync.remove, 'access_token', (e) => {
+    //     console.log('cleanAccessToken:' ,e);
+    // })
+}
+
 export function* userHandler(user, {
     access_token
 }) {
@@ -64,7 +74,10 @@ export function* userHandler(user, {
                 type: SUCCESS_LOGIN,
                 user: response
             })
+            
         }
+        yield take(LOGOUT)
+        yield call(cleanAccessToken)
     } catch (error) {
         yield put({
             type: FAIL_TO_LOGIN,

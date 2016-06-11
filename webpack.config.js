@@ -9,12 +9,24 @@ module.exports = {
         popup: './front-end/popup.js',
         content: './front-end/content.js',
         options: './front-end/options.js',
-        dev: './front-end/dev.js'
+        dev: [
+                'webpack/hot/dev-server',
+                'webpack-dev-server/client?http://localhost:8080',
+                './front-end/dev.js'
+            ]
             // app: './front-end/app/index.js'
     },
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: '[name]-bundle.js'
+    },
+    resolve: {
+        root: path.resolve(__dirname),
+        alias: {
+            app: 'front-end/app',
+            components: 'front-end/app/components',
+            actions: 'front-end/app/actions',
+        }
     },
     module: {
         loaders: [{
@@ -31,27 +43,50 @@ module.exports = {
                 presets: ['es2015', 'react', 'stage-1'],
             }
         }, {
-            test: /\.[s]?css$/,
+            test: /font-awesome\.css$/,
+            loaders: [
+                'style?sourceMap',
+                'css?importLoaders=1',
+                'postcss'
+            ]
+        },{
+            test: /^((?!font-awesome).)*\.[s]?css$/,
             loaders: [
                 'style?sourceMap',
                 'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
                 'postcss'
             ]
         }, {
+            test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+            loader: "url?limit=10000&mimetype=application/font-woff"
+        }, {
+            test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+            loader: "url?limit=10000&mimetype=application/font-woff"
+        }, {
+            test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+            loader: "url?limit=10000&mimetype=application/octet-stream"
+        }, {
+            test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+            loader: "file"
+        }, {
+            test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+            loader: "url?limit=10000&mimetype=image/svg+xml"
+        }, {
             test: /\.json$/,
             loader: 'json-loader'
         }, {
             test: /\.(png|jpg|jpeg|gif|woff)$/,
             loader: 'url-loader?limit=8192?name=[name].[ext]'
-        }],
-
+        }]
     },
     postcss: [
         postcssNested,
         require('postcss-cssnext'),
-        require('postcss-simple-vars')
+        require('postcss-simple-vars'),
+        require('postcss-nested')
     ],
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
         new webpack.ProvidePlugin({
             React: "react",
             ReactDOM: "react-dom",

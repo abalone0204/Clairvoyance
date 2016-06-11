@@ -1,15 +1,11 @@
-import getProvider, {
-    getProviderName,
-    getJobQuery
-} from '../providers'
-
 import {
     connect
 } from 'react-redux'
 
 import oauthCallback from '../../chrome/oauthCallback.js'
 import {
-    requestLogin
+    requestLogin,
+    requestToOAuth
 } from '../actions/login.js'
 import {
     requestFetchJob
@@ -17,49 +13,30 @@ import {
 import {
     requestLeaveComment
 } from '../actions/leaveComment.js'
-
 import {
-    requestCreateJob
-} from '../actions/createJob.js'
+    changeUserIdentity
+}from '../actions/changeUserIdentity.js'
 
-let value = 0
-const createJobHandler = (dispatch) => (e) => {
-    e.preventDefault()
-    value += 1
-    const params = {
-        "company_name": `goo${value}`,
-        "job_name": "test",
-        "e04_job_no": "12313"
-    }
-    dispatch(requestCreateJob(params))
-}
+// Import dumb components
+import UserBlock from 'components/UserBlock'
+import Header from 'components/Header'
+import CommentsList from 'components/CommentsList'
+import CommentInput from 'components/CommentInput'
+import FloatingBlock from 'components/FloatingBlock'
+import FlashBlock from 'components/FlashBlock'
+import LoadingBlock from 'components/LoadingBlock'
+import StatusBlock from 'components/StatusBlock'
 
-const fetchJobHandler = (dispatch) => (e) => {
-    e.preventDefault()
-    const query = {
-        "company_name": "goo",
-        "job_name": "test",
-        "e04_job_no": "12313"
-    }
-    dispatch(requestFetchJob(query))
-}
+// Import source provider, 104, 1111, or yes123
+import getProvider, {
+    getProviderName,
+    getJobQuery
+} from '../providers'
 
-const leaveCommentHandler = (type, access_token, dispatch) => (e) => {
-    e.preventDefault()
-    const params = {
-        type,
-        access_token,
-        job_id: '123123123',
-        source: '404',
-        content: 'FROM extension',
-        anonymous: true
-    }
-    console.log(params);
-    dispatch(requestLeaveComment(params))
-}
 
-const clickHandler = (dispatch) => (e) => {
-    e.preventDefault()
+
+const bindSendLoginRequest = (dispatch) => (e) => {
+    dispatch(requestToOAuth())
     chrome.runtime.sendMessage({
         message: "login"
     }, (response) => {
@@ -71,17 +48,6 @@ const clickHandler = (dispatch) => (e) => {
     })
 }
 
-const getAccessTokenHandler = (e) => {
-    e.preventDefault()
-    chrome.storage.sync.get('access_token', (item) => {
-        console.log('item ==>', item);
-    })
-}
-
-const clearHandler = (e) => {
-    e.preventDefault()
-    chrome.storage.sync.clear()
-}
 
 class App extends React.Component {
 
@@ -98,12 +64,19 @@ class App extends React.Component {
                 console.log('access token not found');
             }
         })
+        
+        chrome.storage.sync.get('anonymous', (item) => {
+            if (item['anonymous'] !== undefined) {
+                console.log('item ==>', item['anonymous']);
+                if (user.anonymous !== item['anonymous']) {
+                    dispatch(changeUserIdentity())
+                }    
+            }
+        })
 
         const provider = getProvider()
         const query = getJobQuery(provider)
         dispatch(requestFetchJob(query))
-                
-
     }
 
     render() {
@@ -116,34 +89,43 @@ class App extends React.Component {
         const {
             access_token
         } = user
-        console.log('job==>', job);
-        return (
-            <div>
-                test app container
-                {user.status === 'complete' ? <div>{user.info.user_name}</div>: null}
+        const sendCreateCommentRequest = (params) => {
+            dispatch(requestLeaveComment(params))
+        }
+        const boundChangeUserIdentity = () => {
+            dispatch(changeUserIdentity())
+        }
+        const sendLoginRequest = bindSendLoginRequest(dispatch)
+        const isLoading = user.status === 'loading'
+
+        if (isLoading) {
+            return (
                 <div>
-                    <a href="" onClick={createJobHandler(dispatch)}>create Job</a>
+                    <LoadingBlock {...{user}}/>
                 </div>
+            )
+        } else {
+            return (
                 <div>
-                    <a href="" onClick={fetchJobHandler(dispatch)}>fetch Job</a>
+                    <FlashBlock {...{user}}/>
+                    
+                    <FloatingBlock>
+                        <StatusBlock {...{comments}}/>
+                    </FloatingBlock>
+                    <Header>Comments</Header>
+                    <CommentsList comments={comments}/>
+                    <CommentInput {...{
+                        comments, 
+                        user, 
+                        job,
+                        sendLoginRequest, 
+                        sendCreateCommentRequest, 
+                        changeUserIdentity: boundChangeUserIdentity, 
+                        sendCreateCommentRequest
+                    }}/>
                 </div>
-                <div>
-                    <a href="" onClick={clickHandler(dispatch)}>facebook login</a>
-                </div>
-                <div>
-                    <a href="" onClick={getAccessTokenHandler}>get access_token</a>
-                </div>
-                <div>
-                    <a href="" onClick={clearHandler}> clear</a>
-                </div>
-                <div>
-                    <input ref='comment' type="text"/>
-                    <button onClick={leaveCommentHandler('good', access_token,dispatch)}>推</button>
-                    <button onClick={leaveCommentHandler('bad', access_token,dispatch)}>噓</button>
-                    <button onClick={leaveCommentHandler('normal', access_token,dispatch)}>-></button>
-                </div>
-            </div>
-        )
+            )
+        }
     }
 }
 
