@@ -8,10 +8,15 @@ import {
     logout
 } from '../actions/login.js'
 
+import {
+    changeUserIdentity
+} from '../actions/changeUserIdentity.js'
+
 import Container from '../components/Container'
 import LoginBtn from 'components/FacebookLoginBtn'
 import LoadingBlock from 'components/LoadingBlock'
 import FacebookLoginBtn from 'components/FacebookLoginBtn'
+import About from 'components/About'
 
 const bindSendLoginRequest = (dispatch) => (e) => {
     dispatch(requestToOAuth())
@@ -30,7 +35,8 @@ class Options extends React.Component {
 
     componentWillMount() {
         const {
-            dispatch
+            dispatch,
+            user
         } = this.props
         chrome.storage.sync.get('access_token', (item) => {
             console.log('item ==>', item);
@@ -38,6 +44,14 @@ class Options extends React.Component {
                 dispatch(requestLogin(item['access_token']))
             } else {
                 console.log('access token not found');
+            }
+        })
+        chrome.storage.sync.get('anonymous', (item) => {
+            if (item['anonymous'] !== undefined) {
+                console.log('item ==>', item['anonymous']);
+                if (user.anonymous !== item['anonymous']) {
+                    dispatch(changeUserIdentity())
+                }    
             }
         })
     }
@@ -52,6 +66,15 @@ class Options extends React.Component {
         const {
             access_token
         } = user
+        console.log('user.anonymous:' ,user.anonymous);
+        const handleChange = () => {
+            chrome.storage.sync.set({
+                'anonymous': !(user.anonymous)
+            }, () => {
+                dispatch(changeUserIdentity())
+            })    
+        }
+
         if (user.status === 'loading') {
             return (
                 <LoadingBlock user={user}></LoadingBlock>
@@ -60,8 +83,6 @@ class Options extends React.Component {
             return (
                 <Container>
                     <h1>Clairvoyance</h1>
-                    {user.info ? user.info.user_name : '尚未登入'}     
-
                     {
                         user.status === 'complete' ? 
                         <div>
@@ -74,8 +95,20 @@ class Options extends React.Component {
                         : 
                         <FacebookLoginBtn sendLoginRequest={bindSendLoginRequest(dispatch)}/>
                     }     
-                
-                    
+                    <div> 
+                        <div>
+                            <label htmlFor="identity">匿名留言</label>
+                            
+                                <input
+                                    type="checkbox"
+                                    checked={user.anonymous}
+                                    ref="complete"
+                                    onChange={handleChange}
+                                  />
+                             
+                        </div>
+                    </div>
+                    <About/>
                 </Container>
             )
         }

@@ -50,7 +50,11 @@ export function* loginFlow(action) {
 }
 
 export function* cleanAccessToken() {
-    yield call(chrome.storage.sync.clear)
+    console.log('cleanAccessToken');
+    chrome.storage.sync.remove('access_token')
+    // yield call(chrome.storage.sync.remove, 'access_token', (e) => {
+    //     console.log('cleanAccessToken:' ,e);
+    // })
 }
 
 export function* userHandler(user, {
@@ -70,9 +74,10 @@ export function* userHandler(user, {
                 type: SUCCESS_LOGIN,
                 user: response
             })
-            yield take(LOGOUT)
-            yield call(cleanAccessToken)
+            
         }
+        yield take(LOGOUT)
+        yield call(cleanAccessToken)
     } catch (error) {
         yield put({
             type: FAIL_TO_LOGIN,

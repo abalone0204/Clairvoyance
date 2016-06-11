@@ -64,6 +64,15 @@ class App extends React.Component {
                 console.log('access token not found');
             }
         })
+        
+        chrome.storage.sync.get('anonymous', (item) => {
+            if (item['anonymous'] !== undefined) {
+                console.log('item ==>', item['anonymous']);
+                if (user.anonymous !== item['anonymous']) {
+                    dispatch(changeUserIdentity())
+                }    
+            }
+        })
 
         const provider = getProvider()
         const query = getJobQuery(provider)
