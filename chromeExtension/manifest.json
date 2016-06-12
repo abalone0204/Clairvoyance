@@ -23,7 +23,8 @@
   "content_scripts": [{
     "matches": [
       "https://www.104.com.tw/job/*",
-      "http://www.104.com.tw/job/*"
+      "http://www.104.com.tw/job/*",
+      "http://www.1111.com.tw/job-bank/job-description*"
     ],
     "js": ["./dist/content-bundle.js"]
   }]

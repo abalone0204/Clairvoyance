@@ -1,7 +1,9 @@
 import p104 from './104.js'
+import p1111 from './1111.js'
 
 const rootProvider = {
-    ["104"]: p104
+    ["104"]: p104,
+    ["1111"]: p1111
 }
 
 export function getProviderName() {
@@ -13,9 +15,11 @@ export function getProviderName() {
 
 export function getJobQuery(provider) {
     const jobQuery = {}
+    
     Object.keys(provider).forEach(key => {
         jobQuery[key.substring(4)] = provider[key]()
     })
+
     return jobQuery
 }
 
