@@ -26,6 +26,9 @@ class FloatingBlock extends React.Component {
                       <h2 styleName="header">Clairvoyance</h2>
                       <div styleName="body">
                           {this.props.children}
+                          <div>
+                            <h6>留言在最下方</h6>
+                          </div>
                           <h3 styleName='toggle-display-word' onClick={handleClick}>關閉</h3>
                       </div>
                 </div>

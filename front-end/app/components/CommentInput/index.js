@@ -9,15 +9,19 @@ class CommentInput extends React.Component {
         this.state = {
             confirm: false,
             showConfirm: false,
+            showTextArea: false,
             commentType: 'normal',
-            commentsWordCount: 0
+            commentsWordCount: 500
         }
     }
     handleChange(e) {
-        const {commentsWordCount} = this.state
-        // this.setState({commentsWordCount: }) 
-        console.log('e:', 501-this.refs.commentInput.value.length);
+        const {
+            commentsWordCount
+        } = this.state
 
+        this.setState({
+            commentsWordCount: 500 - this.refs.commentInput.value.length
+        })
 
     }
     render() {
@@ -28,20 +32,30 @@ class CommentInput extends React.Component {
             changeUserIdentity,
             sendCreateCommentRequest
         } = this.props
-        const {showConfirm, commentsWordCount} =this.state
-        
+        const {
+            showConfirm,
+            showTextArea,
+            commentsWordCount
+        } = this.state
+        const {commentInput} =this.refs 
         const handleSubmit = (type) => (e) => {
-            if (!!this.refs.commentInput.value) {
-                this.setState({showConfirm: true, commentType: type})    
-            }
+            this.setState({
+                showTextArea: true,
+                commentType: type
+            })
         }
 
         const type = this.state.commentType
         console.log('user.anonymous:', user.anonymous);
+        
         const confirmHandler = () => {
-            const content = this.refs.commentInput.value
+            const content = commentInput.value
             this.refs.commentInput.value = ''
-            this.setState({showConfirm: false}, ()=> {
+            this.setState({
+                showConfirm: false,
+                showTextArea: false,
+                commentsWordCount: 500
+            }, () => {
                 sendCreateCommentRequest({
                     job_id: job.job.id,
                     source: '13123',
@@ -49,11 +63,27 @@ class CommentInput extends React.Component {
                     anonymous: user.anonymous,
                     access_token: user.access_token,
                     type
-                })    
+                })
             })
         }
         const cancelHandler = () => {
-            this.setState({showConfirm: false})
+            this.setState({
+                showConfirm: false,
+                commentsWordCount: 500
+            })
+        }
+        const cancelShowTextAreaHandler = () => {
+            this.setState({
+                showTextArea: false,
+                commentsWordCount: 500
+            })
+        }
+        const showConfirmBlockHandler = () => {
+            if(!!this.refs.commentInput.value && commentsWordCount >= 0 ) {
+                this.setState({
+                    showConfirm: true
+                })    
+            }
         }
         return (
             <div styleName='container'>
@@ -63,13 +93,18 @@ class CommentInput extends React.Component {
                         <FacebookLoginBtn sendLoginRequest={sendLoginRequest}/>
                 }
                 <div>
+                <h4>按以下按鈕推薦( <i className="fa fa-thumbs-o-up"/>)、噓文( <i className="fa fa-thumbs-o-down"/>)、或送出一般評論（<i className="fa fa-comment-o"/>）</h4>
                 {user.status === 'complete'?
-                    showConfirm ? 
-                      <textarea disabled ref='commentInput' placeholder="對這份工作有什麼看法，或分享你的面試心得" styleName='comment-input' name="comment" cols="30" rows="7"></textarea> 
-                      :
-                      <textarea onChange={this.handleChange.bind(this)} ref='commentInput' placeholder="對這份工作有什麼看法，或分享你的面試心得" styleName='comment-input' name="comment" cols="30" rows="7"></textarea> 
-                    :
-                    <textarea disabled placeholder="登入後才能留言" styleName='comment-input' name="comment" cols="30" rows="7"></textarea>
+                    showTextArea ? 
+                        showConfirm ? 
+                          <textarea disabled ref='commentInput' placeholder="對這份工作有什麼看法，或分享你的面試心得" styleName='comment-input' name="comment" cols="30" rows="7"></textarea> 
+                          :
+                          <div>
+                            <h6>還剩下 {commentsWordCount} 字可以輸入</h6>
+                            <textarea onChange={this.handleChange.bind(this)} ref='commentInput' placeholder="對這份工作有什麼看法，或分享你的面試心得" styleName='comment-input' name="comment" cols="30" rows="7"></textarea> 
+                          </div>
+                        : null
+                    : null
                 }
                 {
                     user.status === 'complete'?
@@ -84,27 +119,39 @@ class CommentInput extends React.Component {
                                 <div styleName='confirm-text'>確定送出嗎？</div>
                             </div> 
                             : 
-                            <div styleName='btn-block'>
-                                <div styleName='good' onClick={handleSubmit('good')}>
-                                    <i className="fa fa-thumbs-o-up"/>
+                            showTextArea ?
+                                <div styleName='btn-block'>
+                                    <div styleName='good' onClick={showConfirmBlockHandler}>
+                                        <i className="fa fa-check"/>
+                                    </div>
+                                    <div styleName='bad' onClick={cancelShowTextAreaHandler}>
+                                        <i className="fa fa-times"/>
+                                    </div>
+                                    <div styleName='confirm-text'>送出</div>
                                 </div>
-                                <div styleName='bad' onClick={handleSubmit('bad')}>
-                                    <i className="fa fa-thumbs-o-down"/>
-                                </div>
-                                <div styleName='normal' onClick={handleSubmit('normal')}>
-                                    <i className="fa fa-comment-o"/>
-                                </div>
-                                <div styleName='toggle-identity'  onClick={changeUserIdentity}>
+                                :
+                                    <div styleName='btn-block'>                                
+                                        <div styleName='good' onClick={handleSubmit('good')}>
+                                            <i className="fa fa-thumbs-o-up"/>
+                                        </div>
+                                        <div styleName='bad' onClick={handleSubmit('bad')}>
+                                            <i className="fa fa-thumbs-o-down"/>
+                                        </div>
+                                        <div styleName='normal' onClick={handleSubmit('normal')}>
+                                            <i className="fa fa-comment-o"/>
+                                        </div>
+                                        <div styleName='toggle-identity'  onClick={changeUserIdentity}>
 
-                                    {
-                                        user.anonymous ? 
-                                              <input type="checkbox" defaultChecked/>
-                                            :
-                                              <input type="checkbox"/>
-                                    }
-                                    <span>匿名</span>
-                                </div>
-                            </div>
+                                            {
+                                                user.anonymous ? 
+                                                      <input type="checkbox" defaultChecked/>
+                                                    :
+                                                      <input type="checkbox"/>
+                                            }
+                                            <span>匿名</span>
+                                        </div>
+                                    </div>
+
                                 
                     
                     :
@@ -138,7 +185,7 @@ class CommentInput extends React.Component {
 
 CommentInput.propTypes = {
     job: React.PropTypes.object.isRequired,
-    comments:React.PropTypes.object.isRequired,
+    comments: React.PropTypes.object.isRequired,
     user: React.PropTypes.object.isRequired,
     sendLoginRequest: React.PropTypes.func.isRequired,
     sendCreateCommentRequest: React.PropTypes.func.isRequired,
