@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Clairvoyance - 求職天眼通",
   "description": "讓你能在各大人力銀行上留言討論職缺，減少求職的資訊不對稱",
-  "version": "1.4",
+  "version": "1.5",
   "author": "clver",
   "icons": {
     "16": "icon16.png",

@@ -23,77 +23,7 @@
 
 ## Front-ned
 
-- State tree
-
-```js
-{
-    actions: {
-        // Login
-        requestLogin,
-        failToLogin,
-        successLogin,
-        logout,
-        // Fetch Comment
-        requestComments,
-        failToGetComments,
-        receiveComments,
-        // Comment block
-        //  Leave comment
-        requestLeaveComment,
-        failToLeaveComment,
-        successLeaveComment,
-        //  Edit comment
-        requestEditComment,
-        failToEditComment,
-        successEditComment,
-        //  Report comment
-        requestReportComment,
-        failToReportComment,
-        successReportComment,
-        //  Delete comment,
-        requestDeleteComment,
-        failToDeleteComment,
-        successDeleteComment,
-        // Reply comment
-        requestReplyComment,
-        failToReplyComment,
-        successReplyComment,
-    },
-    user: {
-        uid,
-        status,
-        name,
-        email,
-        comments
-    }
-    comments: [
-        {
-            userId,
-            timestamp,
-            content,
-            replies: [
-                {
-                    userId,
-                    timeStamp
-                    content
-                    histories: [
-                        {
-                            content,
-                            timestamp
-                        }
-                    ]                                        
-                }
-            ]
-            histories: [
-                {
-                    content,
-                    timestamp
-                }
-            ]
-        }
-    ]
-}
-```
+- react, redux, redux-saga
 
 ## Back-end
 
@@ -103,15 +33,3 @@
 
 - restore s3
 
-# Application
-
-## Chrome extension
-
-## Firfox Plugin
-
-## Web 
-
-
-## Trouble
-
-- fetch 不能在 header 裡面用中文

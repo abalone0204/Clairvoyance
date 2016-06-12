@@ -8,9 +8,11 @@ class FacebookLoginBtn extends React.Component {
     render() {
         const {sendLoginRequest} = this.props
         return (
-            <button styleName="login-btn-fb" onClick={sendLoginRequest}>
-              Login with Facebook
-            </button>
+            <div>
+                <button styleName="login-btn-fb" onClick={sendLoginRequest}>
+                  Login with Facebook
+                </button>
+            </div>
             )
     }
 }

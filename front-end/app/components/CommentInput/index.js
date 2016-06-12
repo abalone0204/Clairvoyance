@@ -15,15 +15,23 @@ class CommentInput extends React.Component {
             confirmText: ''
         }
     }
+
     handleChange(e) {
         const {
             commentsWordCount
         } = this.state
 
         this.setState({
-            commentsWordCount: 500 - this.refs.commentInput.value.length
+            commentsWordCount: 500 - this.refs.commentInput.value.length,
+            confirmText: this.refs.commentInput.value
         })
 
+    }
+    componentDidUpdate() {
+        const {showTextArea, confirmText} = this.state 
+        if (showTextArea) {
+            this.refs.commentInput.value= confirmText
+        }
     }
     render() {
         const {
@@ -69,17 +77,23 @@ class CommentInput extends React.Component {
                 })
             })
         }
+
         const cancelHandler = () => {
+            const confirmText= this.refs.commentInput.value
             this.setState({
-                showConfirm: false
+                showConfirm: false,
+                confirmText
             })
         }
+
         const cancelShowTextAreaHandler = () => {
             this.setState({
                 showTextArea: false,
-                commentsWordCount: 500
+                commentsWordCount: 500,
+                confirmText: ''
             })
         }
+
         const showConfirmBlockHandler = () => {
             if(!!this.refs.commentInput.value && commentsWordCount >= 0 ) {
                 const confirmText= this.refs.commentInput.value
@@ -89,12 +103,16 @@ class CommentInput extends React.Component {
                 })    
             }
         }
+
         return (
             <div styleName='container'>
                 {user.status === 'complete'?
                         <div></div>
                         :
-                        <FacebookLoginBtn sendLoginRequest={sendLoginRequest}/>
+                        <div>
+                            <FacebookLoginBtn sendLoginRequest={sendLoginRequest}/>
+                            <div style={{padding: '10px', color: '#b1b1b1'}}>登入後可以使用匿名留言，臉書的名稱和帳號都是保密的</div>
+                        </div>
                 }
                 <div>
                 {
@@ -110,6 +128,7 @@ class CommentInput extends React.Component {
                           <textarea disabled ref='commentInput' placeholder="對這份工作有什麼看法，或分享你的面試心得" styleName='comment-input' name="comment" cols="30" rows="7" value={confirmText}></textarea> 
                           :
                           <div>
+                            {user.anonymous ? <h6>你會以匿名的方式發布評論</h6>: <h6>你會以 {user.info.user_name} 的名義發布評論</h6>}
                             <h6>還剩下 {commentsWordCount} 字可以輸入</h6>
                             <textarea onChange={this.handleChange.bind(this)} ref='commentInput' placeholder="對這份工作有什麼看法，或分享你的面試心得" styleName='comment-input' name="comment" cols="30" rows="7"></textarea> 
                           </div>
@@ -120,24 +139,23 @@ class CommentInput extends React.Component {
                     user.status === 'complete'?
                             showConfirm ? 
                             <div styleName='btn-block'>
-                                <div styleName='good' onClick={confirmHandler}>
+                                <div styleName='confirm-text'>確定送出嗎？</div>
+                                <div styleName='check-confirm' onClick={confirmHandler}>
                                     <i className="fa fa-check"/>
                                 </div>
-                                <div styleName='bad' onClick={cancelHandler}>
+                                <div styleName='cancel-confirm' onClick={cancelHandler}>
                                     <i className="fa fa-times"/>
                                 </div>
-                                <div styleName='confirm-text'>確定送出嗎？</div>
                             </div> 
                             : 
                             showTextArea ?
                                 <div styleName='btn-block'>
-                                    <div styleName='good' onClick={showConfirmBlockHandler}>
+                                    <div styleName='check-confirm' onClick={showConfirmBlockHandler}>
                                         <i className="fa fa-check"/>
                                     </div>
-                                    <div styleName='bad' onClick={cancelShowTextAreaHandler}>
+                                    <div styleName='cancel-confirm' onClick={cancelShowTextAreaHandler}>
                                         <i className="fa fa-times"/>
                                     </div>
-                                    <div styleName='confirm-text'>送出</div>
                                 </div>
                                 :
                                     <div styleName='btn-block'>                                

@@ -1,48 +1,48 @@
 $background: #F6F6F6;
 
 .container {
-    position: relative;
-    box-sizing: border-box;
-    max-width: 680px;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    font-family: 'Open Sans', sans-serif;
-    min-height: 400px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
-    background: $background;
-    padding: 10px 12px;
-    border-bottom: 1px solid #E5E5E5;
-    border-radius: 4px 4px 0 0;
-    transition: all ease-in-out 0.3s;
+  position: relative;
+  box-sizing: border-box;
+  max-width: 680px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  font-family: 'Open Sans', sans-serif;
+  min-height: 400px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  background: $background;
+  padding: 10px 12px;
+  border-bottom: 1px solid #E5E5E5;
+  border-radius: 4px 4px 0 0;
+  transition: all ease-in-out 0.3s;
 }
 
 .comment-input {
-    resize: none;
-    width: 100%;
-    border: transparent;
-    font-size: 20px;
-    padding: 15px;
-    box-sizing: border-box;
-    margin-top: 15px;
-    transition: all ease-in-out 0.3s;
+  resize: none;
+  width: 100%;
+  border: transparent;
+  font-size: 20px;
+  padding: 15px;
+  box-sizing: border-box;
+  margin-top: 15px;
+  transition: all ease-in-out 0.3s;
 }
+
 .comment-input:disabled {
-    background: #f6f6f6;
+  background: #f6f6f6;
 }
 
 .btn-block {
-    content: "";
-    padding-top: 15px;
-    height: 50px;
+  content: "";
+  padding-top: 15px;
+  height: 50px;
 }
-
 
 .btn-block--disabled {
-    composes: btn-block;
+  composes: btn-block;
 }
 
-.btn-block--disabled div{
-    cursor: not-allowed;
+.btn-block--disabled div {
+  cursor: not-allowed;
 }
 
 .button {
@@ -61,13 +61,14 @@ $background: #F6F6F6;
 }
 
 .button:first-child {
-    margin-left: 0;
+  margin-left: 0;
 }
+
 .button i {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .button:after {
@@ -75,7 +76,6 @@ $background: #F6F6F6;
   content: "";
   display: block;
   font-size: 30px;
-  
   text-decoration: none;
   text-shadow: 0px -1px 1px #bdb5b4, 1px 1px 1px white;
   position: absolute;
@@ -99,27 +99,51 @@ $background: #F6F6F6;
 }
 
 .good {
-    composes: button;
+  composes: button;
+}
+
+.check-confirm {
+  composes: button;
+  color: green;
+}
+
+.check-confirm i {
+  opacity: 0.6;
+}
+
+.check-confirm:hover {
+  color: green;
+  i {
+    opacity: 1;
+  }
 }
 
 .good:hover {
-    color: green;
+  color: green;
 }
 
 .bad {
-    composes: button;
+  composes: button;
 }
 
 .bad:hover {
-    color: red;
+  color: red;
+}
+
+.cancel-confirm {
+  composes: button;
+  color: #b1b1b1;
+}
+.cancel-confirm:hover {
+  color: #111;
 }
 
 .normal {
-    composes: button;
+  composes: button;
 }
 
 .toggle-identity {
-    padding: 10px;    
+  padding: 10px;
 }
 
 .checkbox {
@@ -127,12 +151,15 @@ $background: #F6F6F6;
   vertical-align: middle;
   cursor: pointer;
   user-select: none;
+
   input {
     display: none;
+
     &+span {
       display: inline-block;
       position: relative;
       padding-left: 20px;
+
       &:before {
         content: '';
         display: block;
@@ -146,6 +173,7 @@ $background: #F6F6F6;
         border: 1px solid #ccc;
         background: #fff;
       }
+
       &:after {
         content: '';
         display: block;
@@ -161,14 +189,18 @@ $background: #F6F6F6;
         transform: scale(10, 10) rotate(45deg);
         transition: all .2s cubic-bezier(0.64, 0.57, 0.67, 1.53);
       }
+
     }
+
     &:checked+span:after {
       opacity: 1;
       transform: scale(1, 1) rotate(45deg);
     }
+
   }
+
 }
 
 .confirm-text {
-    padding: 10px;   
+  padding: 10px;
 }

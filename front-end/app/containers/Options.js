@@ -105,7 +105,27 @@ class Options extends React.Component {
                             </div>
                         </div>
                         : 
-                        <FacebookLoginBtn sendLoginRequest={bindSendLoginRequest(dispatch)}/>
+                        <div>
+                            <FacebookLoginBtn sendLoginRequest={bindSendLoginRequest(dispatch)}/>
+                            <h2>為什麼需要臉書登入？</h2>
+                            <div>
+                                <ul>
+                                    <li>簡易的認證機制，防止機器人帳號</li>
+                                    <li>未來會加上追蹤有留言的職缺</li>
+                                    <li>因為臉書目前普及率較高，所以先只做了臉書的，未來會再加上其他認證方式 :）</li>
+
+                                </ul>
+                            </div>
+                            <h2>登入後可以做什麼？</h2>
+                            <div>
+                                <ul>
+                                    <li>
+                                        你可以使用匿名留言，不會有人知道你的臉書帳號是什麼
+                                    </li>
+                                    <li>可以使用一般的留言，前面會留下你個人的大頭照</li>
+                                </ul>
+                            </div>
+                        </div>
                     }     
                     <hr/>
                     <About/>
