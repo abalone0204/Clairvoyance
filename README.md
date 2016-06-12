@@ -17,6 +17,10 @@
 
 # Architecture
 
+- Simpify version
+
+![clairvoyance architecture](clv-arc.png)
+
 ## Front-ned
 
 - State tree
