@@ -9,7 +9,7 @@ class StatusBlock extends React.Component {
             comments
         } = this.props
 
-        if (comments.data.length !== 0) {
+        
             let statNumbers = {
                 good: 0,
                 bad: 0,
@@ -45,7 +45,6 @@ class StatusBlock extends React.Component {
                 </div>
             </div>
             )
-        }
 
 
     }

@@ -53,21 +53,17 @@ class App extends React.Component {
 
     componentWillMount() {
         const {
-            dispatch
+            dispatch, user
         } = this.props
 
         chrome.storage.sync.get('access_token', (item) => {
-            console.log('item ==>', item);
             if (!!item['access_token']) {
                 dispatch(requestLogin(item['access_token']))
-            } else {
-                console.log('access token not found');
             }
         })
         
         chrome.storage.sync.get('anonymous', (item) => {
             if (item['anonymous'] !== undefined) {
-                console.log('item ==>', item['anonymous']);
                 if (user.anonymous !== item['anonymous']) {
                     dispatch(changeUserIdentity())
                 }    

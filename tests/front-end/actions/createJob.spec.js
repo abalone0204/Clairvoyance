@@ -23,7 +23,8 @@ describe('Actions/ Create job', () => {
             params: {
                 company_name,
                 job_name,
-                e04_job_no
+                e04_job_no,
+                eeee_job_no: "null"
             }
         }
         const actual = requestCreateJob({
