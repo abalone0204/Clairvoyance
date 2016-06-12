@@ -11,7 +11,8 @@ class CommentInput extends React.Component {
             showConfirm: false,
             showTextArea: false,
             commentType: 'normal',
-            commentsWordCount: 500
+            commentsWordCount: 500,
+            confirmText: ''
         }
     }
     handleChange(e) {
@@ -35,7 +36,8 @@ class CommentInput extends React.Component {
         const {
             showConfirm,
             showTextArea,
-            commentsWordCount
+            commentsWordCount,
+            confirmText
         } = this.state
         const {commentInput} =this.refs 
         const handleSubmit = (type) => (e) => {
@@ -49,6 +51,7 @@ class CommentInput extends React.Component {
         console.log('user.anonymous:', user.anonymous);
         
         const confirmHandler = () => {
+            console.log('commentInput.value', commentInput.value);
             const content = commentInput.value
             this.refs.commentInput.value = ''
             this.setState({
@@ -68,8 +71,7 @@ class CommentInput extends React.Component {
         }
         const cancelHandler = () => {
             this.setState({
-                showConfirm: false,
-                commentsWordCount: 500
+                showConfirm: false
             })
         }
         const cancelShowTextAreaHandler = () => {
@@ -80,8 +82,10 @@ class CommentInput extends React.Component {
         }
         const showConfirmBlockHandler = () => {
             if(!!this.refs.commentInput.value && commentsWordCount >= 0 ) {
+                const confirmText= this.refs.commentInput.value
                 this.setState({
-                    showConfirm: true
+                    showConfirm: true,
+                    confirmText
                 })    
             }
         }
@@ -103,7 +107,7 @@ class CommentInput extends React.Component {
                 {user.status === 'complete'?
                     showTextArea ? 
                         showConfirm ? 
-                          <textarea disabled ref='commentInput' placeholder="對這份工作有什麼看法，或分享你的面試心得" styleName='comment-input' name="comment" cols="30" rows="7"></textarea> 
+                          <textarea disabled ref='commentInput' placeholder="對這份工作有什麼看法，或分享你的面試心得" styleName='comment-input' name="comment" cols="30" rows="7" value={confirmText}></textarea> 
                           :
                           <div>
                             <h6>還剩下 {commentsWordCount} 字可以輸入</h6>
