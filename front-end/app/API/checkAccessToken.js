@@ -6,12 +6,12 @@ import {
 export default function checkAccessToken({
     access_token
 }) {
-    const url = `https://graph.facebook.com/debug_token?input_token=${access_token}&access_token=${access_token}`
+    const url = `https://graph.facebook.com/me?access_token=${access_token}&fileds=email,id,name`
     return fetch(url)
         .then(checkStatus)
         .then(parseJSON)
         .then(response => {
-            return response.data.is_valid
+            return !!(response.id)
         })
 
 }

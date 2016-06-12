@@ -9,8 +9,16 @@ class CommentInput extends React.Component {
         this.state = {
             confirm: false,
             showConfirm: false,
-            commentType: 'normal'
+            commentType: 'normal',
+            commentsWordCount: 0
         }
+    }
+    handleChange(e) {
+        const {commentsWordCount} = this.state
+        // this.setState({commentsWordCount: }) 
+        console.log('e:', 501-this.refs.commentInput.value.length);
+
+
     }
     render() {
         const {
@@ -20,7 +28,7 @@ class CommentInput extends React.Component {
             changeUserIdentity,
             sendCreateCommentRequest
         } = this.props
-        const {showConfirm} =this.state
+        const {showConfirm, commentsWordCount} =this.state
         
         const handleSubmit = (type) => (e) => {
             if (!!this.refs.commentInput.value) {
@@ -59,7 +67,7 @@ class CommentInput extends React.Component {
                     showConfirm ? 
                       <textarea disabled ref='commentInput' placeholder="對這份工作有什麼看法，或分享你的面試心得" styleName='comment-input' name="comment" cols="30" rows="7"></textarea> 
                       :
-                      <textarea ref='commentInput' placeholder="對這份工作有什麼看法，或分享你的面試心得" styleName='comment-input' name="comment" cols="30" rows="7"></textarea> 
+                      <textarea onChange={this.handleChange.bind(this)} ref='commentInput' placeholder="對這份工作有什麼看法，或分享你的面試心得" styleName='comment-input' name="comment" cols="30" rows="7"></textarea> 
                     :
                     <textarea disabled placeholder="登入後才能留言" styleName='comment-input' name="comment" cols="30" rows="7"></textarea>
                 }
