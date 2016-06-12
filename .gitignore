@@ -3,3 +3,4 @@ dist
 *.log
 config.json
 chromeExtension/dist/*
+*.zip

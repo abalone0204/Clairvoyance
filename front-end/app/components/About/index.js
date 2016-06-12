@@ -30,6 +30,7 @@ class About extends React.Component {
                         <a href="https://www.facebook.com/Clairvoyance-%E6%B1%82%E8%81%B7%E5%A4%A9%E7%9C%BC%E9%80%9A-1084564708284768" target='_blank'>Clairvoyance - 求職天眼通</a>
                     </div>
                     <div>
+                        如果你有什麼職缺需要人幫忙給意見的話可以 po 在這問人 :D <br/>
                         未來有什麼新功能增加會在這裡公佈， <br/>
                         當然，這裡未來也會把一些熱門討論的職缺給 po 上去。 <br/>
                         目前還在實做幫我做這件事的機器人中， <br/>
