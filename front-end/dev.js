@@ -22,7 +22,7 @@ const mockStyles = {
     height: '10vh'
 }
 
-
+const access_token = 'asdasdas'
 
 const App = ({
     comments,
@@ -33,6 +33,7 @@ const App = ({
     changeUserIdentity
 }) => (
     <div>
+        <Loading></Loading>
         <SpingLoading/>
         <div style={mockStyles}>nothing but mock</div>
         <LoadingBlock {...{user}}/>
@@ -60,8 +61,7 @@ fetchComments('be6fd760-2e79-11e6-9314-9b8ebc40d4e9').then(data => {
     }
     const initUser = {
         status: 'init',
-        access_token,
-
+        access_token
     }
     const loadingUser = {
         status: 'loading',

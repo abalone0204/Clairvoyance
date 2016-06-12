@@ -1,9 +1,14 @@
 {
   "manifest_version": 2,
-  "name": "Clairvoyance",
-  "description": "This extension shows a Google Image search result for the current page",
-  "version": "1.0",
+  "name": "Clairvoyance - 求職天眼通",
+  "description": "讓你能在各大人力銀行上留言討論職缺，減少求職的資訊不對稱",
+  "version": "1.2",
   "author": "clver",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"
