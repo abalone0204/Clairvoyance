@@ -86,7 +86,7 @@ fetchComments('be6fd760-2e79-11e6-9314-9b8ebc40d4e9').then(data => {
         data
     }
     console.log(data[0]);
-    ReactDOM.render(<App user={initUser} comments={comments} job={job}
+    ReactDOM.render(<App user={completeUser} comments={comments} job={job}
                          sendLoginRequest={sendLoginRequest}
                          sendCreateCommentRequest={sendCreateCommentRequest}
                          changeUserIdentity={changeUserIdentity}

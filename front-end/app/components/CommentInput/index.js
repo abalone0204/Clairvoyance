@@ -93,7 +93,13 @@ class CommentInput extends React.Component {
                         <FacebookLoginBtn sendLoginRequest={sendLoginRequest}/>
                 }
                 <div>
-                <h4>按以下按鈕推薦( <i className="fa fa-thumbs-o-up"/>)、噓文( <i className="fa fa-thumbs-o-down"/>)、或送出一般評論（<i className="fa fa-comment-o"/>）</h4>
+                {
+                    !(showTextArea || showConfirm) ?
+                    <h4>按以下按鈕推薦( <i className="fa fa-thumbs-o-up"/>)、噓文( <i className="fa fa-thumbs-o-down"/>)、或送出一般評論（<i className="fa fa-comment-o"/>）</h4>
+                    :
+                    null
+                }
+                
                 {user.status === 'complete'?
                     showTextArea ? 
                         showConfirm ? 
