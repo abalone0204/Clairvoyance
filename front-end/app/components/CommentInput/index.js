@@ -59,10 +59,9 @@ class CommentInput extends React.Component {
         }
 
         const type = this.state.commentType
-        console.log('user.anonymous:', user.anonymous);
+
         
         const confirmHandler = () => {
-            console.log('commentInput.value', commentInput.value);
             const content = commentInput.value
             this.refs.commentInput.value = ''
             this.setState({

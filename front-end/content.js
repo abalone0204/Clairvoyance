@@ -13,7 +13,7 @@ document.head.appendChild(cdnNode)
 const providerName = getProviderName()
 const provider = getProvider()
 const jobObject = getJobQuery(provider)
-console.log('jobObject:',jobObject);
+
 const {job_name,company_name} = jobObject
 
 const node = document.createElement('div')
