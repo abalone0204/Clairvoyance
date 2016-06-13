@@ -14,6 +14,49 @@
 
 - Exposing Information
 
+# Get started 
+
+## Extension
+
+- First you need to add a `config.json` in root directory
+
+{
+    "backend": BACKEND_URL,
+    "dev": {
+        "auth": {
+            "authUri": AUTH_URL,
+            "redirectUri": CALLBACK_URL,
+            "clientId": FB_APP_ID
+        }
+    }
+}
+
+- Then run `npm install`
+
+- `npm run dev:chrome`
+
+- Then you can load the directory: `chromeExtension` as a chrome extension
+
+# GUI
+
+- If you just want to develop the user interface:
+
+```
+> npm install
+```
+
+```
+> npm start
+```
+
+- Then you can check the basic ui at http://localhost:80808
+
+- You can modify `front-end/dev.js` to change the view
+
+> I know it looks bad, and not so trivial, 
+
+> plz give me some time to make it better XD
+
 
 # Architecture
 
