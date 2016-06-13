@@ -1,6 +1,6 @@
 # OAuth
 
-Oauth tutoria 裡面說要把那幾個 js files 放到 background page 裡面
+Oauth tutorial 裡面說要把那幾個 js files 放到 background page 裡面
 
 但實際上 background page 已經 deprecated 了，
 
@@ -12,7 +12,7 @@ Oauth tutoria 裡面說要把那幾個 js files 放到 background page 裡面
 
 真的有必要花費時間去實作會員機制嗎？
 
-> 有的話應該要另外弄個服務來註冊及登入 : activication code
+> 有的話應該要另外弄個服務來註冊及登入 : activation code
 
 > 而且不應該放在這個 project
 
