@@ -12,7 +12,7 @@ import {
 
 export default function user(state = {
     status: 'init',
-    anonymous: false
+    anonymous: true
 }, action) {
     switch (action.type) {
         case REQUEST_TO_OAUTH:
