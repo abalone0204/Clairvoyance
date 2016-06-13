@@ -4,3 +4,5 @@ dist
 config.json
 chromeExtension/dist/*
 *.zip
+.tmp
+.DS_Store
