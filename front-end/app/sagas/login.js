@@ -50,8 +50,7 @@ export function* loginFlow(action) {
 }
 
 export function* cleanAccessToken() {
-    console.log('cleanAccessToken');
-    chrome.storage.sync.remove('access_token')
+    yield call(chrome.storage.sync.clear)
     // yield call(chrome.storage.sync.remove, 'access_token', (e) => {
     //     console.log('cleanAccessToken:' ,e);
     // })

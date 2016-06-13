@@ -14,7 +14,7 @@ class FloatingBlock extends React.Component {
 
     render() {
         const {display} = this.state
-        
+        const {job} = this.props
         const handleClick = (e) => {
             this.setState({display: !display})
         }
@@ -27,7 +27,12 @@ class FloatingBlock extends React.Component {
                       <div styleName="body">
                           {this.props.children}
                           <div>
-                            <h6>留言在最下方</h6>
+                            {
+                                job.job ?
+                                <h6>留言在<a href={`#${job.job.job_name}Cla`}>最下方（點此直接看）</a></h6>
+                                : null
+                            }
+                            
                           </div>
                           <h3 styleName='toggle-display-word' onClick={handleClick}>關閉</h3>
                       </div>

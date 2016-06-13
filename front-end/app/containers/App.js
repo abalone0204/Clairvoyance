@@ -105,7 +105,7 @@ class App extends React.Component {
                 <div>
                     <FlashBlock {...{user}}/>
                     
-                    <FloatingBlock>
+                    <FloatingBlock {...{job}}> 
                         <StatusBlock {...{comments}}/>
                     </FloatingBlock>
                     <Header>Comments</Header>
