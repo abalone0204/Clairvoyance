@@ -3,12 +3,16 @@
  * @return {[string]} 
  */
 function getCompanyName() {
-	return document.querySelector("h1.header").innerText() || null;
+	return document.querySelector('h1.header').innerText || null;
 }
 
+function getJobName() {
+	return document.querySelector('h1').innerText || "";
+}
 
 const provider = {
-  getCompanyName
+  getCompanyName,
+  getJobName
 }
 
 export default provider

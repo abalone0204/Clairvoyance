@@ -4,7 +4,8 @@ import sudo  from './sudo.js'
 
 const rootProvider = {
     ["104"]: p104,
-    ["1111"]: p1111
+    ["1111"]: p1111,
+    ["sudo"]: sudo,
 }
 
 export function getProviderName() {
