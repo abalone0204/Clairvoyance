@@ -12,6 +12,7 @@
 setTimeout(function(){
   FB.init({
     appId      : 1230682326955383, // App ID
+    version : 'v2.2',
     status     : true, // check login status
     cookie     : true, // enable cookies to allow the server to access the session
     xfbml      : true  // parse XFBML
