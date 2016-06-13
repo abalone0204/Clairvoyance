@@ -28,6 +28,7 @@
   "content_security_policy": "script-src 'self' https://connect.facebook.net; object-src 'self'",
   "content_scripts": [{
     "matches": [
+      "https://www.sudo.com.tw/companies/*",
       "https://www.104.com.tw/job/*",
       "http://www.104.com.tw/job/*",
       "http://www.1111.com.tw/job-bank/job-description*"
