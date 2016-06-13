@@ -64,7 +64,7 @@
 
 ![clairvoyance architecture](clv-arc.png)
 
-## Front-ned
+## Front-end
 
 - react, redux, redux-saga
 
