@@ -1,0 +1,19 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+$background: #F6F6F6;
+
+.container {
+    position: relative;
+    box-sizing: border-box;
+    width: 680px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    font-family: 'Open Sans', sans-serif;
+    min-height: 400px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    background: $background;
+    padding: 10px 12px;
+    border-bottom: 1px solid #E5E5E5;
+    border-radius: 4px 4px 0 0;
+    transition: all ease-in-out 0.3s;
+}

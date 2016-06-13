@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Clairvoyance - 求職天眼通",
   "description": "讓你能在各大人力銀行上留言討論職缺，減少求職的資訊不對稱",
-  "version": "1.8",
+  "version": "1.9",
   "author": "clver",
   "icons": {
     "16": "icon16.png",
@@ -15,21 +15,25 @@
   },
   "options_page": "options.html",
   "background": {
-    "scripts": ["./dist/eventPage-bundle.js"],
+    "scripts": ["dist/eventPage-bundle.js"],
     "persistent": false
   },
+  "web_accessible_resources" : ["loadfb.js"],
   "permissions": [
     "storage",
     "tabs",
     "activeTab",
     "https://ajax.googleapis.com/"
   ],
+  "content_security_policy": "script-src 'self' https://connect.facebook.net; object-src 'self'",
   "content_scripts": [{
     "matches": [
       "https://www.104.com.tw/job/*",
       "http://www.104.com.tw/job/*",
       "http://www.1111.com.tw/job-bank/job-description*"
     ],
-    "js": ["./dist/content-bundle.js"]
+    "js": [
+      "./dist/content-bundle.js"
+    ]
   }]
 }

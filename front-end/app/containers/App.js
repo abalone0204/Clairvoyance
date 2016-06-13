@@ -22,6 +22,7 @@ import UserBlock from 'components/UserBlock'
 import Header from 'components/Header'
 import CommentsList from 'components/CommentsList'
 import CommentInput from 'components/CommentInput'
+import FBComment from 'components/FBComment'
 import FloatingBlock from 'components/FloatingBlock'
 import FlashBlock from 'components/FlashBlock'
 import LoadingBlock from 'components/LoadingBlock'
@@ -119,7 +120,9 @@ class App extends React.Component {
                         changeUserIdentity: boundChangeUserIdentity, 
                         sendCreateCommentRequest
                     }}/>
+                    <FBComment url={self.location.ref} numposts="10" />
                 </div>
+
             )
         }
     }

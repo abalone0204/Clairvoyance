@@ -3,6 +3,9 @@ import CSSModules from 'react-css-modules'
 import styles from './styles.css'
 import FacebookLoginBtn from 'components/FacebookLoginBtn'
 
+import FBComment from "components/FBComment"
+
+
 class CommentInput extends React.Component {
     constructor(props) {
         super(props)
@@ -203,6 +206,7 @@ class CommentInput extends React.Component {
                 
                     
                 </div>
+                <hr style={{clear:"both",marginTop:"20px"}} />
             </div>
         )
 
