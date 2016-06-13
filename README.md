@@ -20,16 +20,18 @@
 
 - First you need to add a `config.json` in root directory
 
+```json
 {
-    "backend": BACKEND_URL,
+    "backend": "BACKEND_URL",
     "dev": {
         "auth": {
-            "authUri": AUTH_URL,
-            "redirectUri": CALLBACK_URL,
-            "clientId": FB_APP_ID
+            "authUri": "AUTH_URL",
+            "redirectUri": "CALLBACK_URL",
+            "clientId": "FB_APP_ID"
         }
     }
 }
+```
 
 - Then run `npm install`
 
