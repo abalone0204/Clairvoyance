@@ -6,6 +6,7 @@ import {
 import config from '../../../config.json'
 
 export default function createComment({job_id, source, content, anonymous, access_token, type}) {
+    content = content.replace(/\n/g, '%0D%0A')
     const {backend} = config
     const options = {
         method: 'POST',

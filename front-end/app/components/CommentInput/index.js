@@ -69,6 +69,7 @@ class CommentInput extends React.Component {
                 showTextArea: false,
                 commentsWordCount: 500
             }, () => {
+                this.setState({confirmText: ''})
                 sendCreateCommentRequest({
                     job_id: job.job.id,
                     source: '13123',
