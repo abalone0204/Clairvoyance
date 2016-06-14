@@ -13,6 +13,11 @@ function renderAvatar(url) {
     } 
 }
 
+
+function renderContent(content) {
+    return {__html: content.replace(/(?:\r\n|\r|\n)/g, '<br />')}
+}
+
 class Comment extends React.Component {
 
     shouldComponentUpdate(prevProps){
@@ -58,9 +63,7 @@ class Comment extends React.Component {
                         {renderTime(comment.timestamp)}
                     </div>
                     </div>
-                    <div styleName='body'>
-                        {comment.content} 
-                    </div>
+                    <div styleName='body' dangerouslySetInnerHTML={renderContent(comment.content)}/>
                 </div>
                
                
