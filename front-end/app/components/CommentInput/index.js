@@ -205,7 +205,6 @@ class CommentInput extends React.Component {
                 
                     
                 </div>
-                <hr style={{clear:"both",marginTop:"20px"}} />
             </div>
         )
 
