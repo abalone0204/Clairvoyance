@@ -28,7 +28,7 @@ chrome.storage.sync = chrome.storage.sync || {
     },
     set: (items, callback)=>{
         for(let k in items) {
-			k = k.toString();
+            k = k.toString();
             localStorage.setItem(k, JSON.stringify(items[k]));
         }
         
