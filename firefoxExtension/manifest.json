@@ -9,14 +9,21 @@
     "48": "icon48.png",
     "128": "icon128.png"
   },
+  "applications": {
+    "gecko": {
+      "id": "Clairvoyance@example.com",
+      "strict_min_version": "45.0"
+    }
+  },
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
-  "options_page": "options.html",
+  "options_ui": {
+    "page": "options.html"
+  },
   "background": {
-    "scripts": ["dist/eventPage-bundle.js"],
-    "persistent": false
+    "scripts": ["dist/eventPage-bundle.js"]
   },
   "web_accessible_resources" : ["loadfb.js"],
   "permissions": [
@@ -33,6 +40,7 @@
       "http://www.1111.com.tw/job-bank/job-description*"
     ],
     "js": [
+	  "chrome-content.js", 
       "./dist/content-bundle.js"
     ]
   }]
