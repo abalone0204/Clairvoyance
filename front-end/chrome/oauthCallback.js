@@ -66,7 +66,7 @@ export default function callback(originTabIndex, sendResponse) {
 
     chrome.tabs.create({
         url: url,
-        selected: true
+        active: true
     }, (tab) => {
         authTabId = tab.id;
         chrome.tabs.onUpdated.addListener(tabUpdateHandler(authTabId, originTabIndex, sendResponse))
