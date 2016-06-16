@@ -5,12 +5,13 @@ chrome.storage.sync = chrome.storage.sync || {
         let result = {};
         if(Array.isArray(keys)) {
             keys.forEach((item)=>{
-                result[item] = localStorage.getItem(item);
+                let k = item.toString();
+                result[k] = localStorage.getItem(k);
             });
         }
         else if(typeof(keys) === 'object') {
             for(let k in keys) {
-                result[k] = localStorage.getItem(k);
+                result[k] = localStorage.getItem(k) || keys[k];
             }
         }
         else {
