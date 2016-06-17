@@ -83,7 +83,10 @@ class Options extends React.Component {
             return (
                 <Container>
                     <h1>Clairvoyance</h1>
-                    <div>目前由於遭受 DDoS 攻擊，所以先只開啟 Facebook 留言版</div>
+                    <div>
+                        現在的留言系統是架在 Disqus 上， <br/>
+                        你可以選擇登入或者直接留言。
+                    </div>
                     {/*
                         user.status === 'complete' ? 
                         <div>
