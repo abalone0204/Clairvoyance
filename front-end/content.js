@@ -32,7 +32,4 @@ function injectScript(file, node) {
 }
 injectScript( chrome.extension.getURL('loadfb.js'), 'body');
 
-renderApp(nodeId, {
-    job_name,
-    company_name
-})
+renderApp(nodeId)

@@ -53,27 +53,27 @@ const bindSendLoginRequest = (dispatch) => (e) => {
 class App extends React.Component {
 
     componentWillMount() {
-        const {
-            dispatch, user
-        } = this.props
+        // const {
+        //     dispatch, user
+        // } = this.props
 
-        chrome.storage.sync.get('access_token', (item) => {
-            if (!!item['access_token']) {
-                dispatch(requestLogin(item['access_token']))
-            }
-        })
+        // chrome.storage.sync.get('access_token', (item) => {
+        //     if (!!item['access_token']) {
+        //         dispatch(requestLogin(item['access_token']))
+        //     }
+        // })
         
-        chrome.storage.sync.get('anonymous', (item) => {
-            if (item['anonymous'] !== undefined) {
-                if (user.anonymous !== item['anonymous']) {
-                    dispatch(changeUserIdentity())
-                }    
-            }
-        })
+        // chrome.storage.sync.get('anonymous', (item) => {
+        //     if (item['anonymous'] !== undefined) {
+        //         if (user.anonymous !== item['anonymous']) {
+        //             dispatch(changeUserIdentity())
+        //         }    
+        //     }
+        // })
 
-        const provider = getProvider()
-        const query = getJobQuery(provider)
-        dispatch(requestFetchJob(query))
+        // const provider = getProvider()
+        // const query = getJobQuery(provider)
+        // dispatch(requestFetchJob(query))
     }
 
     render() {
@@ -104,6 +104,8 @@ class App extends React.Component {
         } else {
             return (
                 <div>
+                    {
+                    /*
                     <FlashBlock {...{user}}/>
                     
                     <FloatingBlock {...{job}}> 
@@ -120,6 +122,9 @@ class App extends React.Component {
                         changeUserIdentity: boundChangeUserIdentity, 
                         sendCreateCommentRequest
                     }}/>
+                    */    
+                    }
+                    
                     <FBComment url={self.location.ref} numposts="10" />
                 </div>
 

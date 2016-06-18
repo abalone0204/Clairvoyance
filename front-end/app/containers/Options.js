@@ -34,26 +34,26 @@ const bindSendLoginRequest = (dispatch) => (e) => {
 class Options extends React.Component {
 
     componentWillMount() {
-        const {
-            dispatch,
-            user
-        } = this.props
-        chrome.storage.sync.get('access_token', (item) => {
-            console.log('item ==>', item);
-            if (!!item['access_token']) {
-                dispatch(requestLogin(item['access_token']))
-            } else {
-                console.log('access token not found');
-            }
-        })
-        chrome.storage.sync.get('anonymous', (item) => {
-            if (item['anonymous'] !== undefined) {
-                console.log('item ==>', item['anonymous']);
-                if (user.anonymous !== item['anonymous']) {
-                    dispatch(changeUserIdentity())
-                }    
-            }
-        })
+        // const {
+        //     dispatch,
+        //     user
+        // } = this.props
+        // chrome.storage.sync.get('access_token', (item) => {
+        //     console.log('item ==>', item);
+        //     if (!!item['access_token']) {
+        //         dispatch(requestLogin(item['access_token']))
+        //     } else {
+        //         console.log('access token not found');
+        //     }
+        // })
+        // chrome.storage.sync.get('anonymous', (item) => {
+        //     if (item['anonymous'] !== undefined) {
+        //         console.log('item ==>', item['anonymous']);
+        //         if (user.anonymous !== item['anonymous']) {
+        //             dispatch(changeUserIdentity())
+        //         }    
+        //     }
+        // })
     }
 
     render() {
@@ -83,7 +83,11 @@ class Options extends React.Component {
             return (
                 <Container>
                     <h1>Clairvoyance</h1>
-                    {
+                    <div>
+                        現在的留言系統是架在 Disqus 上， <br/>
+                        你可以選擇登入或者直接留言。
+                    </div>
+                    {/*
                         user.status === 'complete' ? 
                         <div>
                             <h2>Hi, {user.info.user_name}</h2>
@@ -133,6 +137,7 @@ class Options extends React.Component {
                             </div>
                             
                         </div>
+                        */
                     }     
                     <hr/>
                     <About/>
