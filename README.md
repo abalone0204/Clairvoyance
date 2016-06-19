@@ -2,7 +2,7 @@
 
 [![available in the chrome website store](chrome-store-available.png)](https://chrome.google.com/webstore/detail/clairvoyance-%E6%B1%82%E8%81%B7%E5%A4%A9%E7%9C%BC%E9%80%9A/mdneakdlnoidknagkamfeambdefhppbi?hl=zh-TW&gl=TW)
 
-- You might ask what "Clairvoyance" means.
+- You might ask what does "Clairvoyance" mean.
 
 - Let me show you the answer:
 
@@ -12,7 +12,7 @@
 
 - Make the world a better place (XD
 
-- Exposing Information
+- Exposing information
 
 # Get started 
 
@@ -57,12 +57,12 @@
 
 > I know it looks bad, and not so trivial, 
 
-> plz give me some time to make it better XD
+> please give me some time to make it better XD
 
 
 # Architecture
 
-- Simpify version
+- Simplified version
 
 ![clairvoyance architecture](clv-arc.png)
 
