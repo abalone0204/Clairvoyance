@@ -3,6 +3,8 @@ dist
 *.log
 config.json
 chromeExtension/dist/*
+firefoxExtension/dist/*
 *.zip
+*.xpi
 .tmp
 .DS_Store
