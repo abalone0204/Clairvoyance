@@ -25,14 +25,8 @@ class FloatingBlock extends React.Component {
                       <div styleName="triangle"/>
                       <h2 styleName="header">Clairvoyance</h2>
                       <div styleName="body">
-                          {this.props.children}
                           <div>
-                            {
-                                job.job ?
-                                <h6>留言在<a href={`#${job.job.job_name}Cla`}>最下方（點此直接看）</a></h6>
-                                : null
-                            }
-                            
+                            <h6><a href='#disqus_thread'>點擊這裡看留言</a></h6>
                           </div>
                           <h3 styleName='toggle-display-word' onClick={handleClick}>關閉</h3>
                       </div>
