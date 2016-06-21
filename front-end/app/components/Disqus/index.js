@@ -10,9 +10,10 @@ class Disqus extends React.Component {
         } = this.props
 
         const disqus_config = () => {
-            this.page.url = location.href; // Replace PAGE_URL with your page's canonical URL variable
+            this.page.url = document.querySelector('link[rel="canonical"]').href
             this.page.identifier = `${company_name}-${job_name}` // Replace PAGE_IDENTIFIER with your page's unique identifier variable
         }
+
 
         (function() { // DON'T EDIT BELOW THIS LINE
             var d = document,
