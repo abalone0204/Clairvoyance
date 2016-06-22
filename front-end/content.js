@@ -31,5 +31,6 @@ function injectScript(file, node) {
     th.appendChild(s);
 }
 injectScript( chrome.extension.getURL('loadfb.js'), 'body');
+injectScript( chrome.extension.getURL('loadDisqus.js'), 'body');
 
 renderApp(nodeId)
