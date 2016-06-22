@@ -18,7 +18,7 @@
     "scripts": ["dist/eventPage-bundle.js"],
     "persistent": false
   },
-  "web_accessible_resources" : ["loadfb.js"],
+  "web_accessible_resources" : ["loadfb.js", "loadDisqus.js"],
   "permissions": [
     "storage",
     "tabs",

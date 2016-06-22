@@ -25,7 +25,7 @@
   "background": {
     "scripts": ["dist/eventPage-bundle.js"]
   },
-  "web_accessible_resources" : ["loadfb.js"],
+  "web_accessible_resources" : ["loadfb.js", "loadDisqus.js"],
   "permissions": [
     "storage",
     "tabs",
