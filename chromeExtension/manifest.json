@@ -28,12 +28,11 @@
   "content_security_policy": "script-src 'self' https://connect.facebook.net; object-src 'self'",
   "content_scripts": [{
     "matches": [
-      "https://www.104.com.tw/job/*",
-      "http://www.104.com.tw/job/*",
-      "http://104.com.tw/job/*",
-      "https://104.com.tw/job/*",
+      "*://www.104.com.tw/job/*",
+      "*://104.com.tw/job/*",
       "http://www.1111.com.tw/job-bank/job-description*",
-      "http://www.518.com.tw/*-job-*.html"
+      "http://www.518.com.tw/*-job-*.html",
+      "*://www.yes123.com.tw/admin/job_refer_comp_job_detail2.asp*"
     ],
     "js": [
       "./dist/content-bundle.js"
