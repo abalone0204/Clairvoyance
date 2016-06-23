@@ -1,9 +1,11 @@
-import p104 from './104.js'
+import p104  from './104.js'
 import p1111 from './1111.js'
+import sudo  from './sudo.js'
 
 const rootProvider = {
     ["104"]: p104,
-    ["1111"]: p1111
+    ["1111"]: p1111,
+    ["sudo"]: sudo
 }
 
 export function getProviderName() {
