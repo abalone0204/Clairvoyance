@@ -32,7 +32,8 @@
       "http://www.104.com.tw/job/*",
       "http://104.com.tw/job/*",
       "https://104.com.tw/job/*",
-      "http://www.1111.com.tw/job-bank/job-description*"
+      "http://www.1111.com.tw/job-bank/job-description*",
+      "http://www.518.com.tw/*-job-*.html"
     ],
     "js": [
       "./dist/content-bundle.js"
