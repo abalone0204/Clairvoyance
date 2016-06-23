@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Clairvoyance - 求職天眼通",
   "description": "讓你能在各大人力銀行上留言討論職缺，減少求職的資訊不對稱",
-  "version": "3.1.2",
+  "version": "3.2",
   "author": "clver",
   "icons": {
     "16": "icon16.png",
@@ -32,7 +32,8 @@
       "*://104.com.tw/job/*",
       "http://www.1111.com.tw/job-bank/job-description*",
       "http://www.518.com.tw/*-job-*.html",
-      "*://www.yes123.com.tw/admin/job_refer_comp_job_detail2.asp*"
+      "*://www.yes123.com.tw/admin/job_refer_comp_job_detail2.asp*",
+      "http://www.1111.com.tw//job-bank/job-description*"
     ],
     "js": [
       "./dist/content-bundle.js"
