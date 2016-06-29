@@ -1,5 +1,7 @@
 # Clairvoyance
 
+[![Join the chat at https://gitter.im/abalone0204/Clairvoyance](https://badges.gitter.im/abalone0204/Clairvoyance.svg)](https://gitter.im/abalone0204/Clairvoyance?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![available in the chrome website store](chrome-store-available.png)](https://chrome.google.com/webstore/detail/clairvoyance-%E6%B1%82%E8%81%B7%E5%A4%A9%E7%9C%BC%E9%80%9A/mdneakdlnoidknagkamfeambdefhppbi?hl=zh-TW&gl=TW)
 
 - You might ask what does "Clairvoyance" mean.
