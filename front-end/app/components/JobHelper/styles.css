@@ -34,6 +34,7 @@
 }
 
 .list {
+    padding: 30px;
 }
 
 .item {
@@ -46,10 +47,9 @@
 }
 
 .close {
-    position: fixed;
+    text-align: right;
     cursor: pointer;
     top: 50px;
-    right: 70px;
     transition: opacity 0.2s ease-in;
     opacity: 0.5;
     font-size: 20px;

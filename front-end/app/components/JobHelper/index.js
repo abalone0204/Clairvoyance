@@ -121,7 +121,7 @@ class JobHelper extends React.Component {
                         <div onClick={closeHandler} styleName='close'>
                             <i className="fa fa-times" aria-hidden="true" />關閉視窗
                         </div>
-                        
+        
                         <div styleName='list'>
                             {resultNode}
                         </div>
