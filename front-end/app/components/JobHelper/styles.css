@@ -1,0 +1,65 @@
+.container {
+}
+
+@keyframes slide-in {
+  from {
+    right: -600px;
+  }
+  to {
+    right: -5px;
+  }
+}
+
+.notice {
+    position: fixed;
+    right: -5px;
+    z-index: 2000;
+    bottom: 100px;
+    animation: slide-in 0.75s 1 alternate ease-out;
+}
+
+.flash-container {
+    position: relative;
+    padding: 14px;
+    background: #ed6866;
+    color: red;
+    border-radius: 5px;
+}
+
+.close-flash {
+    position: absolute;
+    cursor: pointer;
+    top: 2px;
+    left: 5px;
+}
+
+.list {
+}
+
+.item {
+    padding: 15px;
+    border-bottom: 2px solid #b1b1b1;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.close {
+    position: fixed;
+    cursor: pointer;
+    top: 50px;
+    right: 70px;
+    transition: opacity 0.2s ease-in;
+    opacity: 0.5;
+    font-size: 20px;
+}
+
+.close:hover {
+    opacity: 1;
+}
+
+.show {
+    text-decoration: underline;
+    cursor: pointer; 
+}
