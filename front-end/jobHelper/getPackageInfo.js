@@ -1,3 +1,5 @@
+import $ from 'jquery'
+
 export default function getPackageInfo(cb) {
     chrome.storage.local.get({
         packages: {}
@@ -10,3 +12,14 @@ export default function getPackageInfo(cb) {
         cb(items.packages);
     });
 }
+
+function update_packages(cb) {
+    $.get('https://jobhelper.g0v.ronny.tw/api/getpackages', (ret) => {
+        ret.fetch_at = (new Date()).getTime();
+        chrome.storage.local.set({
+            packages: ret
+        }, function() {
+            cb(ret);
+        });
+    }, 'json');
+};

@@ -54,13 +54,3 @@ function updateChoosedPackages(choosedPackages) {
     });
 }
 
-function update_packages(cb) {
-    $.get('https://jobhelper.g0v.ronny.tw/api/getpackages', (ret) => {
-        ret.fetch_at = (new Date()).getTime();
-        chrome.storage.local.set({
-            packages: ret
-        }, function() {
-            cb(ret);
-        });
-    }, 'json');
-};
