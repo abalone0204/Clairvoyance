@@ -8,7 +8,7 @@ class FloatingBlock extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            display: true
+            display: false
         }
     } 
 

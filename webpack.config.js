@@ -26,6 +26,7 @@ module.exports = {
             app: 'front-end/app',
             components: 'front-end/app/components',
             actions: 'front-end/app/actions',
+            jobHelper: 'front-end/jobHelper'
         }
     },
     module: {
