@@ -46,6 +46,7 @@ $shin-color: #00ffff;
   text-transform: uppercase;
   color: #fff;
   margin: 0;
+  border: none;
 }
 
 .body {

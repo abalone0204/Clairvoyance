@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Clairvoyance - 求職天眼通",
   "description": "讓你能在各大人力銀行上留言討論職缺，減少求職的資訊不對稱",
-  "version": "3.1.3",
+  "version": "3.5.1",
   "author": "clver",
   "icons": {
     "16": "icon16.png",
@@ -18,22 +18,25 @@
     "scripts": ["dist/eventPage-bundle.js"],
     "persistent": false
   },
-  "web_accessible_resources" : ["loadfb.js", "loadDisqus.js"],
+  "web_accessible_resources": ["loadfb.js", "loadDisqus.js"],
   "permissions": [
     "storage",
     "tabs",
     "activeTab",
-    "https://ajax.googleapis.com/"
+    "https://ajax.googleapis.com/",
+    "http://jobhelper.g0v.ronny.tw/",
+    "https://jobhelper.g0v.ronny.tw/",
+    "http://www.taiwanjobs.gov.tw/"
   ],
   "content_security_policy": "script-src 'self' https://connect.facebook.net; object-src 'self'",
   "content_scripts": [{
     "matches": [
-      "https://www.104.com.tw/job/*",
-      "http://www.104.com.tw/job/*",
-      "http://104.com.tw/job/*",
-      "https://104.com.tw/job/*",
-      "http://www.1111.com.tw//job-bank/job-description*",
-      "http://www.1111.com.tw/job-bank/job-description*"
+      "*://www.104.com.tw/job/*",
+      "*://104.com.tw/job/*",
+      "http://www.1111.com.tw/job-bank/job-description*",
+      "http://www.518.com.tw/*-job-*.html",
+      "*://www.yes123.com.tw/admin/job_refer_comp_job_detail2.asp*",
+      "http://www.1111.com.tw//job-bank/job-description*"
     ],
     "js": [
       "./dist/content-bundle.js"

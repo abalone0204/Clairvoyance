@@ -8,7 +8,7 @@ import getProvider, {
     getProviderName,
     getJobQuery
 } from '../providers'
-
+import JobHelper from 'components/JobHelper'
 class ClvApp extends React.Component {
     render() {
         const providerName = getProviderName()
@@ -26,6 +26,7 @@ class ClvApp extends React.Component {
                     Comments
                 </Header>
                 <Disqus {...{job_name, company_name}}/>
+                <JobHelper/>
             </div>
             )         
     }
