@@ -68,7 +68,7 @@ class JobHelper extends React.Component {
             displayFlash
         } = this.state
 
-        if (result.length >= 0) {
+        if (result.length > 0) {
             const resultNode = result.map((item, key) => {
                 const {
                     date,
