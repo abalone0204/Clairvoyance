@@ -18,12 +18,18 @@
     animation: slide-in 0.75s 1 alternate ease-out;
 }
 
+
 .flash-container {
     position: relative;
     padding: 14px;
     background: #d9534f;
     color: white;
     border-radius: 5px;
+}
+
+.flash-container--alright {
+  composes: flash-container;
+  background: #02b875;
 }
 
 .close-flash {
