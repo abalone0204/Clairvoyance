@@ -1,9 +1,8 @@
 import {
   checkStatus,
   parseJSON,
-} from './helper.js'
+} from '../helper.js'
 
-import config from '../../../config.json'
 
 export default function searchByJob({
   job_title,
