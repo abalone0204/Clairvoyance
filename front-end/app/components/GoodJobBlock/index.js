@@ -71,7 +71,6 @@ const GoodJobBlock = ({
 
   return (
     <div>
-      GoodJobBlock
       {
         status === 'fetching' ?
         <div>
@@ -81,7 +80,6 @@ const GoodJobBlock = ({
         :
         null
       }
-      
     </div>
   )
 }
