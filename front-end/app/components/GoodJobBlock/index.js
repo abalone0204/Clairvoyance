@@ -39,7 +39,7 @@ const GoodJobBlock = ({
           公司名稱：{company.name}
         </div>
         <div>
-          每週平均工時：{company.avg}小時
+          公司每週平均工時：{company.avg}小時
         </div>
       </div>
     ))
