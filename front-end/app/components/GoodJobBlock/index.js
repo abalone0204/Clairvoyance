@@ -56,7 +56,7 @@ const GoodJobBlock = ({
               display ?
               <div>
                 {displayNode}
-                <div styleName="credit">provide by Good Job - 工時透明化運動</div>
+                <div styleName="credit">provided by Good Job - 工時透明化運動</div>
               </div>
               :
               <div styleName='work-time'>
