@@ -2,7 +2,7 @@ import {
   assert,
 } from 'chai'
 
-import reducer from 'reducers/workingTimes.js'
+import {byJob} from 'reducers/workingTimes.js'
 
 import {
   requestFetchWorkingTimeByJobTitle,
@@ -17,7 +17,7 @@ const createInitState = () => {
 }
 
 describe('Reducer/ workingTimes', () => {
-
+  const reducer = byJob
   it('should have an init state', () => {
     const initState = createInitState()
     const expected = initState

@@ -7,10 +7,7 @@ import {
   call,
 } from 'redux-saga/effects'
 
-import goodjobAPI from 'API/goodjob'
-const {
-  searchByJob,
-} = goodjobAPI
+import searchByJob from '../API/goodjob/searchByJob.js'
 
 import {
   REQUEST_FETCH_WORKING_TIME_BY_JOB_TITLE,
@@ -22,14 +19,17 @@ import {
 
 export function* fetchWorkingTimeFlow(action) {
   try {
+    console.log('start to fetch');
     const {
       job_title,
       page,
     } = action
+    console.log('action',action);
     const response = yield call(searchByJob, {
       job_title,
       page,
     })
+    console.log('response', response);
     yield put(receiveWorkingTime(response))
 
   } catch (error) {

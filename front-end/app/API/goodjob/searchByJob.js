@@ -8,9 +8,6 @@ export default function searchByJob({
   job_title,
   page,
 }) {
-  const {
-    backend
-  } = config
   const options = {
     headers: {
       "Content-Type": "application/json"

@@ -18,7 +18,9 @@ import getProvider, {
   getJobQuery
 } from '../providers'
 
-
+import {
+  requestFetchWorkingTimeByJobTitle,
+} from 'actions/fetchWorkingTime.js'
 
 export function* watchFetchInitJobObject() {
   yield call(takeEvery, FETCH_INIT_JOB_OBJECT, initJobObjectFlow)
@@ -30,6 +32,10 @@ export function* initJobObjectFlow(action) {
     const provider = yield call(getProvider)
     const jobObject = yield call(getJobQuery, provider)
     yield put(setInitJobObject(jobObject))
+    yield put(requestFetchWorkingTimeByJobTitle({
+      job_title: jobObject.job_name,
+      page: 0
+    }))
 
   } catch (error) {
     yield put(failToInitJobObject(error))

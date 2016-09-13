@@ -1,10 +1,15 @@
 import {
+  combineReducers
+} from 'redux'
+
+import {
   REQUEST_FETCH_WORKING_TIME_BY_JOB_TITLE,
   RECEIVE_WORKING_TIME,
   FAIL_TO_FETCH_WORKING_TIME_BY_JOB_TITLE,
 } from 'actions/fetchWorkingTime.js'
 
-export default function workingTimes(state = {
+
+export function byJob(state = {
   status: 'init',
 }, action) {
   switch (action.type) {
@@ -25,3 +30,8 @@ export default function workingTimes(state = {
       return state
   }
 }
+
+const workingTimes = combineReducers({
+ byJob, 
+})
+export default workingTimes
