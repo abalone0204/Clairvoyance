@@ -17,7 +17,8 @@ import FlashBlock from 'components/FlashBlock'
 import LoadingBlock from 'components/LoadingBlock'
 import StatusBlock from 'components/StatusBlock'
 import About from 'components/About'
-
+import Disqus from 'components/Disqus'
+import Clock from 'components/Clock'
 const mockStyles = {
     height: '10vh'
 }
@@ -55,44 +56,52 @@ const changeUserIdentity = () => {
     console.log('changeUserIdentity');
 }
 
-fetchComments('be6fd760-2e79-11e6-9314-9b8ebc40d4e9').then(data => {
-    const job = {
-        id: 'asdasd'
-    }
-    const initUser = {
-        status: 'init',
-        access_token
-    }
-    const loadingUser = {
-        status: 'loading',
-        access_token
-    }
-    const completeUser = {
-        status: 'complete',
-        access_token,
-        info: {
-            created_at: 1465182432987,
-            fb_id: "1047832758603512",
-            id: "c3ff8ab0-2b93-11e6-b35c-1f15d7941296",
-            user_name: "Denny Ku",
-        },
-        anonymous: true
-    }
-    const sendLoginRequest = () => {
-        console.log('mockSendLoginRequest');
-    }
-    const comments = {
-        status: 'complete',
-        data
-    }
-    console.log(data[0]);
-    ReactDOM.render(<App user={completeUser} comments={comments} job={job}
-                         sendLoginRequest={sendLoginRequest}
-                         sendCreateCommentRequest={sendCreateCommentRequest}
-                         changeUserIdentity={changeUserIdentity}
-        />,
+// fetchComments('be6fd760-2e79-11e6-9314-9b8ebc40d4e9').then(data => {
+//     const job = {
+//         id: 'asdasd'
+//     }
+//     const initUser = {
+//         status: 'init',
+//         access_token
+//     }
+//     const loadingUser = {
+//         status: 'loading',
+//         access_token
+//     }
+//     const completeUser = {
+//         status: 'complete',
+//         access_token,
+//         info: {
+//             created_at: 1465182432987,
+//             fb_id: "1047832758603512",
+//             id: "c3ff8ab0-2b93-11e6-b35c-1f15d7941296",
+//             user_name: "Denny Ku",
+//         },
+//         anonymous: true
+//     }
+//     const sendLoginRequest = () => {
+//         console.log('mockSendLoginRequest');
+//     }
+//     const comments = {
+//         status: 'complete',
+//         data
+//     }
+//     console.log(data[0]);
+//     ReactDOM.render(<App user={completeUser} comments={comments} job={job}
+//                          sendLoginRequest={sendLoginRequest}
+//                          sendCreateCommentRequest={sendCreateCommentRequest}
+//                          changeUserIdentity={changeUserIdentity}
+//         />,
+//         document.querySelector('#container'))
+// })
+
+    ReactDOM.render((
+      <div>
+        <Clock/>
+      </div>
+      ),
         document.querySelector('#container'))
-})
+
 
 if (module.hot) {
     module.hot.accept();

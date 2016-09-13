@@ -1,0 +1,122 @@
+$size: 50px;
+$border-color: #000;
+
+.clock {
+  position: relative;
+  height: $size;
+  width: $size;
+  background: white;
+  box-sizing: border-box;
+  border-radius: 100%;
+  border: 2px solid $border-color;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.h-rect {
+  position: absolute;
+  width: 8px;
+  height: 3px;
+  background: #262626;
+}
+
+.v-rect {
+  position: absolute;
+  width: 3px;
+  height: 8px;
+  background: #262626;
+}
+
+.top {
+  composes: v-rect;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.right {
+  composes: h-rect;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto 0;
+}
+
+.bottom {
+  composes: v-rect;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+}
+
+.left {
+  composes: h-rect;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto 0;
+}
+
+.center {
+  height: 6px;
+  width: 6px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #262626;
+  border-radius: 100%;
+}
+
+.hand {
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.hand:before {
+  position: absolute;
+  content: "";
+}
+
+.hour {
+  composes: hand;
+  animation: time 4s infinite linear;
+
+  &:before {
+    background: #262626;
+    height: calc($size * 0.225);
+    width: 3px;
+    top: calc($size * 0.225 * 0.9);
+  }
+
+}
+
+.minute {
+  composes: hand;
+  animation: time 0.8s infinite linear;
+
+  &:before {
+    background: #fd1111;
+    height: 17px;
+    width: 2px;
+    top: 26px;
+  }
+
+}
+
+@keyframes time {
+  to {
+    transform: rotate(360deg);
+  }
+
+}
