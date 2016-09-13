@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Clairvoyance - 求職天眼通",
   "description": "讓你能在各大人力銀行上留言討論職缺，減少求職的資訊不對稱",
-  "version": "3.5.4",
+  "version": "3.6.0",
   "author": "clver",
   "icons": {
     "16": "icon16.png",
@@ -26,7 +26,8 @@
     "https://ajax.googleapis.com/",
     "http://jobhelper.g0v.ronny.tw/",
     "https://jobhelper.g0v.ronny.tw/",
-    "http://www.taiwanjobs.gov.tw/"
+    "http://www.taiwanjobs.gov.tw/",
+    "https://tranquil-fortress-92731.herokuapp.com/"
   ],
   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com https://connect.facebook.net; object-src 'self'",
   "content_scripts": [{

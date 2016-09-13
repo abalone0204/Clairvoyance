@@ -18,7 +18,7 @@ import LoadingBlock from 'components/LoadingBlock'
 import StatusBlock from 'components/StatusBlock'
 import About from 'components/About'
 import Disqus from 'components/Disqus'
-
+import Clock from 'components/Clock'
 const mockStyles = {
     height: '10vh'
 }
@@ -95,7 +95,11 @@ const changeUserIdentity = () => {
 //         document.querySelector('#container'))
 // })
 
-    ReactDOM.render(<Disqus company_name="Qollie" job_name="Devops"/>,
+    ReactDOM.render((
+      <div>
+        <Clock/>
+      </div>
+      ),
         document.querySelector('#container'))
 
 

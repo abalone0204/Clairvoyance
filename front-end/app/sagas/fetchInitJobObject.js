@@ -20,6 +20,7 @@ import getProvider, {
 
 import {
   requestFetchWorkingTimeByJobTitle,
+  requestFetchWorkingTimeStatByCompanyName,
 } from 'actions/fetchWorkingTime.js'
 
 export function* watchFetchInitJobObject() {
@@ -32,8 +33,12 @@ export function* initJobObjectFlow(action) {
     const provider = yield call(getProvider)
     const jobObject = yield call(getJobQuery, provider)
     yield put(setInitJobObject(jobObject))
-    yield put(requestFetchWorkingTimeByJobTitle({
-      job_title: jobObject.job_name,
+    // yield put(requestFetchWorkingTimeByJobTitle({
+    //   job_title: jobObject.job_name,
+    //   page: 0
+    // }))
+    yield put(requestFetchWorkingTimeStatByCompanyName({
+      company: jobObject.company_name,
       page: 0
     }))
 
