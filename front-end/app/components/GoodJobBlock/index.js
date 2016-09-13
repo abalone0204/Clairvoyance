@@ -1,3 +1,5 @@
+import CSSModules from 'react-css-modules'
+import styles from './styles.css'
 import Clock from 'components/Clock'
 
 const GoodJobBlock = ({
@@ -52,7 +54,11 @@ const GoodJobBlock = ({
           <div>
             {
               display ?
-              <div>{displayNode}</div> :
+              <div>
+                {displayNode}
+                <div styleName="credit">provide by Good Job - 工時透明化運動</div>
+              </div>
+              :
               <div styleName='work-time'>
                  <div>每週平均工時</div>
                  <div>{companyWorkStatList[0].avg} 小時</div>
@@ -65,6 +71,7 @@ const GoodJobBlock = ({
             }
           </div> 
         }  
+        
       </div>
     )
   }
@@ -84,4 +91,4 @@ const GoodJobBlock = ({
   )
 }
 
-export default GoodJobBlock;
+export default CSSModules(GoodJobBlock, styles);
