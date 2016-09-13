@@ -2,9 +2,6 @@ import {
   assert
 } from 'chai'
 import {
-  SET_INIT_JOB_OBJECT,
-  FETCH_INIT_JOB_OBJECT,
-  FAIL_TO_INIT_JOB_OBJECT,
   fetchInitJobObject,
   setInitJobObject,
   failToInitJobObject,
