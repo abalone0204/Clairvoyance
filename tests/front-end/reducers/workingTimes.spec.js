@@ -109,7 +109,7 @@ describe('Reducer/ workingTimes', () => {
       }
       const expected = {
         status: 'completed',
-        ...response
+        data: response
       }
       const actual = reducer(initState, receiveWorkingTimeStatByCompanyName(response))
       assert.deepEqual(actual, expected)

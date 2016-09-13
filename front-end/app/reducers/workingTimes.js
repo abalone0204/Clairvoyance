@@ -22,7 +22,7 @@ export function companyStat(state = {
     case RECEIVE_WORKING_TIME_STAT_BY_COMPANY_NAME:
       return Object.assign({}, state, {
         status: 'completed',
-        ...action.response,
+        data: action.response,
       })
     case FAIL_TO_FETCH_WORKING_TIME_STAT_BY_COMPANY_NAME:
       return Object.assign({}, state, {
@@ -58,5 +58,6 @@ export function byJob(state = {
 
 const workingTimes = combineReducers({
   byJob,
+  companyStat,
 })
 export default workingTimes
