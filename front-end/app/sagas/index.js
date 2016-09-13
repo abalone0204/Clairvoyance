@@ -24,6 +24,10 @@ import {
   watchFetchInitJobObject,
 } from './fetchInitJobObject.js'
 
+import {
+watchRequestFetchCompanyStatByCompantName,
+}from './fetchCompanyStatByCompanyName.js'
+
 export default function* rootSaga() {
   yield [
     watchRequestLogin(),
@@ -34,5 +38,6 @@ export default function* rootSaga() {
     transactionOfJobAndComments(),
     watchRequestFetchWorkingTimes(),
     watchFetchInitJobObject(),
+    watchRequestFetchCompanyStatByCompantName(),
   ]
 }
