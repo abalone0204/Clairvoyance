@@ -6,8 +6,33 @@ import {
   REQUEST_FETCH_WORKING_TIME_BY_JOB_TITLE,
   RECEIVE_WORKING_TIME,
   FAIL_TO_FETCH_WORKING_TIME_BY_JOB_TITLE,
+  REQUEST_FETCH_WORKING_TIME_STAT_BY_COMPANY_NAME,
+  RECEIVE_WORKING_TIME_STAT_BY_COMPANY_NAME,
+  FAIL_TO_FETCH_WORKING_TIME_STAT_BY_COMPANY_NAME,
 } from 'actions/fetchWorkingTime.js'
 
+export function companyStat(state = {
+  status: 'init'
+}, action) {
+  switch (action.type) {
+    case REQUEST_FETCH_WORKING_TIME_STAT_BY_COMPANY_NAME:
+      return Object.assign({}, state, {
+        status: 'fetching',
+      })
+    case RECEIVE_WORKING_TIME_STAT_BY_COMPANY_NAME:
+      return Object.assign({}, state, {
+        status: 'completed',
+        ...action.response,
+      })
+    case FAIL_TO_FETCH_WORKING_TIME_STAT_BY_COMPANY_NAME:
+      return Object.assign({}, state, {
+        status: 'error',
+        error: action.error,
+      })
+    default:
+      return state
+  }
+}
 
 export function byJob(state = {
   status: 'init',
@@ -32,6 +57,6 @@ export function byJob(state = {
 }
 
 const workingTimes = combineReducers({
- byJob, 
+  byJob,
 })
 export default workingTimes
