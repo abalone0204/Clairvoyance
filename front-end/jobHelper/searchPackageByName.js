@@ -47,7 +47,7 @@ var get_package_csv_by_id = function(id, cb) {
                 cb(package_csv[id].content);
                 return;
             }
-            $.get('https://jobhelper.g0v.ronny.tw/api/getpackage?id=' + parseInt(id), function(package_csv) {
+            $.get('https://jobhelper.g0v.ronny.tw/api/getpackage?id=' + parseInt(id)+'&from=qollie', function(package_csv) {
                 _package_csv[id] = package_csv;
                 chrome.storage.local.set({
                     package_csv: _package_csv

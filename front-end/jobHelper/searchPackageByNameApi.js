@@ -5,7 +5,7 @@ let _choosed_packages = null;
 let _package_csv = null;
 
 function parsedPackagedUrl(name, url, packages) {
-    return `https://jobhelper.g0v.ronny.tw/api/search?name=${encodeURIComponent(name)}&url=${encodeURIComponent(url)}&packages=${encodeURIComponent(packages.join(','))}`
+    return `https://jobhelper.g0v.ronny.tw/api/search?name=${encodeURIComponent(name)}&url=${encodeURIComponent(url)}&packages=${encodeURIComponent(packages.join(','))}&from=qollie`
 }
 
 
